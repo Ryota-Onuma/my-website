@@ -37,26 +37,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          routeBasePath: 'blog/tech',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -64,6 +47,16 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+  [
+    '@docusaurus/plugin-content-blog',
+    {
+      id: 'diary',
+      routeBasePath: 'blog/diary',
+      path: './blog/diary',
+    },
+]
+],
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -76,11 +69,12 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'techBlogSidebar',
           position: 'left',
           label: 'Tech Blog',
+          autoCollapseCategories: true,
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog/diary', label: 'Diary', position: 'left'},
         {
           href: 'https://github.com/Ryota-Onuma',
           label: 'GitHub',

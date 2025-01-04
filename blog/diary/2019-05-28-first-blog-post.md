@@ -1,6 +1,6 @@
 ---
-slug: first-blog-post
-title: First Blog Post
+slug: first-diary-post
+title: First diary Post
 authors: [slorber, yangshun]
 tags: [hola, docusaurus]
 ---
