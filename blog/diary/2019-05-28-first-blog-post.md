@@ -1,8 +1,8 @@
 ---
 slug: first-diary-post
 title: First diary Post
-authors: [slorber, yangshun]
-tags: [hola, docusaurus]
+authors: [ryota]
+tags: []
 ---
 
 Lorem ipsum dolor sit amet...

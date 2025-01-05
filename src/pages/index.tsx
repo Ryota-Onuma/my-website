@@ -108,6 +108,9 @@ export default function Home(): ReactNode {
       description="Description will go into a meta tag in <head />">
       <main className={styles.main}>
         <Greeting />
+        <section className={styles.aboutMe}>
+          <h1 className={styles.heading}>About Me</h1> 
+        </section>
         <section className={styles.outputs}>
           <h1 className={styles.heading}>Blog</h1>
           <div className={styles.cards}>

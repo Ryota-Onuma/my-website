@@ -6,9 +6,16 @@
   width: 100vw;
 }
 
+.aboutMe {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
 .outputs {
   width: 90vw;
-  /* padding: 50px; */
   box-sizing: border-box;
 }
 
