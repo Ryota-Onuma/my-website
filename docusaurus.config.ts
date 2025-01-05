@@ -55,7 +55,7 @@ const config: Config = {
       routeBasePath: 'blog/diary',
       path: './blog/diary',
     },
-]
+  ]
 ],
   themeConfig: {
     // Replace with your project's social card
@@ -64,7 +64,7 @@ const config: Config = {
       title: 'Ryota Onuma',
       logo: {
         alt: 'Ryota Onuma Logo',
-        src: 'img/logo.svg',
+        src: 'img/musician_duck.png',
       },
       items: [
         {
@@ -75,39 +75,10 @@ const config: Config = {
           autoCollapseCategories: true,
         },
         {to: '/blog/diary', label: 'Diary', position: 'left'},
-        {
-          href: 'https://github.com/Ryota-Onuma',
-          label: 'GitHub',
-          position: 'right',
-        },
       ],
     },
     footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Cosense',
-              href: 'https://scrapbox.io/ryota-onuma/',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/onuma_ryota',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/Ryota-Onuma',
-            },
-            {
-              label: 'Zenn',
-              href: 'https://zenn.dev/ryota_onuma',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Ryota Onuma, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Ryota Onuma, Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
