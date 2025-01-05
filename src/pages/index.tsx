@@ -1,5 +1,5 @@
 import type {ReactNode} from 'react';
-import Top from '@site/src/components/Greeting';
+import Greeting from '@site/src/components/Greeting';
 import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
@@ -107,11 +107,9 @@ export default function Home(): ReactNode {
       title={`Top`}
       description="Description will go into a meta tag in <head />">
       <main className={styles.main}>
-        <section className={styles.greeting}>
-          <Top />
-        </section>
+        <Greeting />
         <section className={styles.outputs}>
-          <h1 className={styles.heading}>Outputs</h1>
+          <h1 className={styles.heading}>Blog</h1>
           <div className={styles.cards}>
           {outputs.map((article, index) => (
             <BlogCard article={article} key={index} />

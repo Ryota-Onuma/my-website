@@ -3,16 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-}
-
-.greeting {
-  width: 100%;
-  background-image: url("/img/top/background-1.png");
+  width: 100vw;
 }
 
 .outputs {
-  width: 100%;
-  padding: 50px;
+  width: 90vw;
+  /* padding: 50px; */
   box-sizing: border-box;
 }
 
@@ -23,9 +19,8 @@
 }
 
 .cards {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  width: 100%;
-  max-width: 1200px;
 }

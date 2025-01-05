@@ -24,11 +24,6 @@ const Top = () => {
                 </div>
                 <div className={styles.buttons}>
                     <Scroll />
-                    <div className={styles.backButton}>
-                        <span onClick={() => scrollToTop()}>
-                            <Back />
-                        </span>
-                    </div>
                 </div>
             </div>
         </>
@@ -64,8 +59,5 @@ const Scroll = () => {
     return <div className={styles.scroll} />;
 };
 
-const Back = () => {
-    return <div className={styles.back} />;
-};
 
 export default Top;
