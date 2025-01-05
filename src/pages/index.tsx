@@ -1,5 +1,5 @@
 import type {ReactNode} from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Top from '@site/src/components/Greeting';
 import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
@@ -102,18 +102,22 @@ const outputs: BlogArticle[]= [
 ]
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`Top`}
       description="Description will go into a meta tag in <head />">
       <main className={styles.main}>
-        <h1 className={styles.heading}>Overview</h1>
-        <div className={styles.cards}>
-        {outputs.map((article, index) => (
-          <BlogCard article={article} key={index} />
-        ))}
-        </div>
+        <section className={styles.greeting}>
+          <Top />
+        </section>
+        <section className={styles.outputs}>
+          <h1 className={styles.heading}>Outputs</h1>
+          <div className={styles.cards}>
+          {outputs.map((article, index) => (
+            <BlogCard article={article} key={index} />
+          ))}
+          </div>
+        </section>
       </main>
     </Layout>
   );
