@@ -5,7 +5,6 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 import BlogCard from '@site/src/components/BlogCard';
 
-
 type BlogArticle = {
   title: string;
   postedAt: string;
@@ -109,7 +108,9 @@ export default function Home(): ReactNode {
       <main className={styles.main}>
         <Greeting />
         <section className={styles.aboutMe}>
-          <h1 className={styles.heading}>About Me</h1> 
+          <h1 className={styles.heading}>About Me👋</h1> 
+          <p>Hi! I'm Ryota Onuma, a software engineer from Yokohama, Japan. </p>
+          <p>Welcome to my website! Feel free to explore and learn more about my outputs.</p>
         </section>
         <section className={styles.outputs}>
           <h1 className={styles.heading}>Blog</h1>

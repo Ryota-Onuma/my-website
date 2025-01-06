@@ -2,10 +2,6 @@ import React from "react";
 import styles from "./index.module.css";
 
 const Top = () => {
-    const scrollToTop = () => {
-        console.log("scrollToTop");
-    };
-
     return (
         <>
             <div className={styles.greeting}>
