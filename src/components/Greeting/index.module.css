@@ -27,7 +27,7 @@
       position: absolute;
       top: 0;
       width: 90vw;
-      height: 100vh;
+      height: 1000vh;
       background: url("/img/top/background-1.png") repeat-y;
       background-size: contain;
       animation: scroll 20s linear infinite;
