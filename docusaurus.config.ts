@@ -80,6 +80,11 @@ const config: Config = {
     footer: {
       copyright: `Copyright © ${new Date().getFullYear()} Ryota Onuma, Built with Docusaurus.`,
     },
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.oneDark,

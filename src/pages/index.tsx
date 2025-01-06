@@ -1,6 +1,7 @@
 import type {ReactNode} from 'react';
 import Greeting from '@site/src/components/Greeting';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 
 import styles from './index.module.css';
 import BlogCard from '@site/src/components/BlogCard';
@@ -108,12 +109,32 @@ export default function Home(): ReactNode {
       <main className={styles.main}>
         <Greeting />
         <section className={styles.aboutMe}>
-          <h1 className={styles.heading}>About Me👋</h1> 
-          <p>Hi! I'm Ryota Onuma, a software engineer from Yokohama, Japan. </p>
+          <h1 className={styles.heading}>Hello👋</h1> 
+          <p>I'm Ryota Onuma, a software engineer from Yokohama, Japan. </p>
           <p>Welcome to my website! Feel free to explore and learn more about my outputs.</p>
         </section>
+        <section className={styles.aboutMe}>
+          <h1 className={styles.heading}>SNS🗣️</h1> 
+          Here are my social media accounts.
+          <ul>
+            <li>
+              <a href="https://x.com/onuma_ryota" target="_blank" rel="noopener noreferrer">X(@onuma_ryota)</a>
+            </li>
+            <li>
+              <a href="https://github.com/Ryota-Onuma?tab=overview" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </li>
+            <li>
+              <a href="https://zenn.dev/ryota_onuma" target="_blank" rel="noopener noreferrer">Zenn</a>
+            </li>
+            <li>
+              <a href="https://scrapbox.io/ryota-onuma/" target="_blank" rel="noopener noreferrer">Cosense</a>
+            </li>
+          </ul>
+        </section>
+        
         <section className={styles.outputs}>
           <h1 className={styles.heading}>Blog</h1>
+          <p>Here are some of my blog posts. For more articles, please visit <Link to="/blog/tech/overview">Tech Blog</Link> and <Link to="/blog/diary">Diary</Link></p>
           <div className={styles.cards}>
           {outputs.map((article, index) => (
             <BlogCard article={article} key={index} />
