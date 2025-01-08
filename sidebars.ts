@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -14,88 +14,129 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 
 const sidebarElement = (title: string, link: string) => {
-  return `<li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a href="${link}" target="_blank" rel="noopener noreferrer" class="menu__link menuExternalLink_NmtK">${title}</a></li>`
-}
+  return `<li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a href="${link}" target="_blank" rel="noopener noreferrer" class="menu__link menuExternalLink_NmtK">${title}</a></li>`;
+};
 
 const sidebars: SidebarsConfig = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   techBlogSidebar: [
     {
-      type: 'doc',
-      id: 'overview',
+      type: "doc",
+      id: "overview",
     },
     {
-      type: 'category',
-      label: 'バイセル Tech Blog',
+      type: "category",
+      label: "バイセル Tech Blog",
       items: [
         {
-          type: 'html',
-          value: sidebarElement('国内ECモール連携が主であるシステムで、グローバルなECモール連携を実現する際に生じた問題とその解決方法', 'https://tech.buysell-technologies.com/entry/adventcalendar2024-12-03'),
+          type: "html",
+          value: sidebarElement(
+            "国内ECモール連携が主であるシステムで、グローバルなECモール連携を実現する際に生じた問題とその解決方法",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2024-12-03",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('サービス運用の負担軽減に繋がった、Playwrightの紹介', 'https://tech.buysell-technologies.com/entry/adventcalendar2023-12-03-01'),
+          type: "html",
+          value: sidebarElement(
+            "サービス運用の負担軽減に繋がった、Playwrightの紹介",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2023-12-03-01",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('プレ負荷テストの導入が、新規開発プロジェクトの負荷テストを円滑にした体験談', 'https://tech.buysell-technologies.com/entry/2023/10/30/102458'),
+          type: "html",
+          value: sidebarElement(
+            "プレ負荷テストの導入が、新規開発プロジェクトの負荷テストを円滑にした体験談",
+            "https://tech.buysell-technologies.com/entry/2023/10/30/102458",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('HasuraのRemote Schema to Database Relationshipsを用いたElasticsearchとの検索連携', 'https://tech.buysell-technologies.com/entry/2023/02/28/080000'),
+          type: "html",
+          value: sidebarElement(
+            "HasuraのRemote Schema to Database Relationshipsを用いたElasticsearchとの検索連携",
+            "https://tech.buysell-technologies.com/entry/2023/02/28/080000",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('リファイメントとプランニングを改善することで、チームの属人化が解消された話', 'https://tech.buysell-technologies.com/entry/adventcalendar2022-12-03'),
+          type: "html",
+          value: sidebarElement(
+            "リファイメントとプランニングを改善することで、チームの属人化が解消された話",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2022-12-03",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('Hasura CLIで挿入するマスタデータをスプレッドシート管理に移行させたので振り返ってみた', 'https://tech.buysell-technologies.com/entry/2022/07/30/153326'),
+          type: "html",
+          value: sidebarElement(
+            "Hasura CLIで挿入するマスタデータをスプレッドシート管理に移行させたので振り返ってみた",
+            "https://tech.buysell-technologies.com/entry/2022/07/30/153326",
+          ),
         },
         {
-          type: 'html', 
-          value: sidebarElement('在庫管理システムの本番環境DBアップグレードを振り返ってみる','https://tech.buysell-technologies.com/entry/2022/01/26/202243')
+          type: "html",
+          value: sidebarElement(
+            "在庫管理システムの本番環境DBアップグレードを振り返ってみる",
+            "https://tech.buysell-technologies.com/entry/2022/01/26/202243",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('CircleCIで構築されたCI/CD環境をGitHub Actionsに移行した際のポイント', 'https://tech.buysell-technologies.com/entry/adventcalendar2021-12-05'),
+          type: "html",
+          value: sidebarElement(
+            "CircleCIで構築されたCI/CD環境をGitHub Actionsに移行した際のポイント",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2021-12-05",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('バイセルの内定者インターン with コロナってどんなことするの？？', 'https://tech.buysell-technologies.com/entry/2020/12/21/092653'),
+          type: "html",
+          value: sidebarElement(
+            "バイセルの内定者インターン with コロナってどんなことするの？？",
+            "https://tech.buysell-technologies.com/entry/2020/12/21/092653",
+          ),
         },
-      ]
-      
+      ],
     },
     {
-      type: 'category',
-      label: 'Zenn',
+      type: "category",
+      label: "Zenn",
       items: [
         {
-          type: 'html',
-          value: sidebarElement('親子関係のあるデータの検索を、ElasticsearchのJoin field typeを使って実現した', 'https://zenn.dev/onuma_ryota/articles/parent-child-search-elasticsearch'),
+          type: "html",
+          value: sidebarElement(
+            "親子関係のあるデータの検索を、ElasticsearchのJoin field typeを使って実現した",
+            "https://zenn.dev/onuma_ryota/articles/parent-child-search-elasticsearch",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('LeetCode: 122. Best Time to Buy and Sell Stock II をGoで解く', 'https://zenn.dev/onuma_ryota/articles/leetcode-122-go'),
+          type: "html",
+          value: sidebarElement(
+            "LeetCode: 122. Best Time to Buy and Sell Stock II をGoで解く",
+            "https://zenn.dev/onuma_ryota/articles/leetcode-122-go",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('LeetCode: 121. Best Time to Buy and Sell Stock をGoで解く', 'https://zenn.dev/onuma_ryota/articles/leetcode-121-go'),
+          type: "html",
+          value: sidebarElement(
+            "LeetCode: 121. Best Time to Buy and Sell Stock をGoで解く",
+            "https://zenn.dev/onuma_ryota/articles/leetcode-121-go",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('LeetCode: 189. Rotate Array をGoで解く', 'https://zenn.dev/onuma_ryota/articles/leetcode-189-go'),
+          type: "html",
+          value: sidebarElement(
+            "LeetCode: 189. Rotate Array をGoで解く",
+            "https://zenn.dev/onuma_ryota/articles/leetcode-189-go",
+          ),
         },
         {
-          type: 'html',
-          value: sidebarElement('LeetCode: 169. Majority Element をGoで解く', 'https://zenn.dev/onuma_ryota/articles/leetcode-169-go'),
+          type: "html",
+          value: sidebarElement(
+            "LeetCode: 169. Majority Element をGoで解く",
+            "https://zenn.dev/onuma_ryota/articles/leetcode-169-go",
+          ),
         },
-      ]
+      ],
     },
     {
-      type: 'autogenerated', 
-      dirName: 'tech'
+      type: "autogenerated",
+      dirName: "tech",
     },
   ],
 
@@ -114,7 +155,6 @@ const sidebars: SidebarsConfig = {
 };
 
 export default sidebars;
-
 
 // export default {
 //   techBlogSidebar: [
