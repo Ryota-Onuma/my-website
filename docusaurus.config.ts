@@ -64,6 +64,7 @@ const config: Config = {
       { name: 'twitter:card', content: 'summary_large_image' }, 
       { name: 'og:image:width', content: '1200' },
       { name: 'og:image:height', content: '600' },
+      { name: 'og:description', content: 'Welcome to my website.' },
     ],
     navbar: {
       title: "Ryota Onuma",
