@@ -59,7 +59,12 @@ const config: Config = {
   ],
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "/img/musician_duck.png",
+    metadata: [
+      { name: 'twitter:card', content: 'summary_large_image' }, 
+      { name: 'og:image:width', content: '1200' },
+      { name: 'og:image:height', content: '600' },
+    ],
     navbar: {
       title: "Ryota Onuma",
       logo: {
