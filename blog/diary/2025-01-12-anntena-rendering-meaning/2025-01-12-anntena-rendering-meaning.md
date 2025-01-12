@@ -1,5 +1,5 @@
 ---
-slug: anntena-rendering
+slug: anntena-rendering-meaning
 title: 「【レンダリング大全】CSR, SSR, SPA, MPA, PPRの意味、そもそもレンダリングとは【2025年始】」を読んだ学びメモ📝
 authors: [ryota]
 tags: [tech,antenna]
@@ -26,7 +26,7 @@ Zennの記事である、「[【レンダリング大全】CSR, SSR, SPA, MPA, P
 
 データを計算して別の形式に変換すること。
 
-例）動画のレンダリングとか。
+例）動画のレンダリングとか
 
 #### ブラウザにおける意味
 
@@ -103,5 +103,3 @@ SEE: https://ja.react.dev/learn/render-and-commit
 - 動的な情報を用いて表示を制御する箇所にのみ、CSRを活用する。
 
 以上により、「表示の高速化」と「動的な表示」を両立できる
-
-
