@@ -2,3 +2,8 @@ tech:
   label: Tech
   permalink: /tech
   description: Technology blog posts
+
+antenna:
+  label: Antenna
+  permalink: /antenna
+  description: Antenna blog posts
