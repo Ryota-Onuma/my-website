@@ -1,18 +1,18 @@
 {
   "こんにちは👋": {
-    "message": "こんにちは👋"
+    "message": "Hi👋"
   },
   "私のポートフォリオサイトへようこそ": {
-    "message": "私のポートフォリオサイトへようこそ"
+    "message": "I'm Ryota Onuma, a software engineer from Yokohama, Japan."
   },
   "本サイトでは私のアウトプットなどを掲載しています。自由にご覧ください。": {
-    "message": "本サイトでは私のアウトプットなどを掲載しています。自由にご覧ください。"
+    "message": "Welcome to my website! Feel free to explore and learn more about my outputs."
   },
   "各種リンクはこちら": {
-    "message": "各種リンクはこちら"
+    "message": "Here are my social media accounts."
   },
   "一部をご紹介します。": {
-    "message": "一部をご紹介します。"
+    "message": "Some of my blog posts are below."
   },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",
