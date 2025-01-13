@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.techBlogSidebar.category.バイセル Tech Blog": {
+    "message": "バイセル Tech Blog",
+    "description": "The label for category バイセル Tech Blog in sidebar techBlogSidebar"
+  },
+  "sidebar.techBlogSidebar.category.Zenn": {
+    "message": "Zenn",
+    "description": "The label for category Zenn in sidebar techBlogSidebar"
+  },
+  "sidebar.techBlogSidebar.category.開発生産性": {
+    "message": "開発生産性",
+    "description": "The label for category 開発生産性 in sidebar techBlogSidebar"
+  }
+}
