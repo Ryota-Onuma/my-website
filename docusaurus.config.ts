@@ -61,10 +61,10 @@ const config: Config = {
     // Replace with your project's social card
     image: "/img/musician_duck.png",
     metadata: [
-      { name: 'twitter:card', content: 'summary_large_image' }, 
-      { name: 'og:image:width', content: '1200' },
-      { name: 'og:image:height', content: '600' },
-      { name: 'og:description', content: 'Welcome to my website.' },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "og:image:width", content: "1200" },
+      { name: "og:image:height", content: "600" },
+      { name: "og:description", content: "Welcome to my website." },
     ],
     navbar: {
       title: "Ryota Onuma",
@@ -82,8 +82,8 @@ const config: Config = {
         },
         { to: "/blog/diary", label: "Diary", position: "left" },
         {
-          type: 'localeDropdown',
-          position: 'right',
+          type: "localeDropdown",
+          position: "right",
         },
       ],
     },

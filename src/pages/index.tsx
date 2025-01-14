@@ -6,7 +6,7 @@ import Link from "@docusaurus/Link";
 import styles from "./index.module.css";
 import BlogCard from "@site/src/components/BlogCard";
 
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate, { translate } from "@docusaurus/Translate";
 
 type BlogArticle = {
   title: string;
@@ -121,9 +121,18 @@ export default function Home(): ReactNode {
       <main className={styles.main}>
         <Greeting />
         <section className={styles.aboutMe}>
-          <h1 className={styles.heading}><Translate>こんにちは👋</Translate></h1>
-          <p><Translate>私のポートフォリオサイトへようこそ</Translate> </p>
-          <p> <Translate>本サイトでは私のアウトプットなどを掲載しています。自由にご覧ください。</Translate> </p>
+          <h1 className={styles.heading}>
+            <Translate>こんにちは👋</Translate>
+          </h1>
+          <p>
+            <Translate>私のポートフォリオサイトへようこそ</Translate>{" "}
+          </p>
+          <p>
+            {" "}
+            <Translate>
+              本サイトでは私のアウトプットなどを掲載しています。自由にご覧ください。
+            </Translate>{" "}
+          </p>
         </section>
         <section className={styles.aboutMe}>
           <h1 className={styles.heading}>SNS🗣️</h1>
@@ -170,7 +179,9 @@ export default function Home(): ReactNode {
 
         <section className={styles.outputs}>
           <h1 className={styles.heading}>Blog</h1>
-          <p><Translate>一部をご紹介します。</Translate></p>
+          <p>
+            <Translate>一部をご紹介します。</Translate>
+          </p>
           <div className={styles.cards}>
             {outputs.map((article, index) => (
               <BlogCard article={article} key={index} />

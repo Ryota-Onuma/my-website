@@ -2,21 +2,18 @@
 slug: anntena-rendering-meaning
 title: 「【レンダリング大全】CSR, SSR, SPA, MPA, PPRの意味、そもそもレンダリングとは【2025年始】」を読んだ学びメモ📝
 authors: [ryota]
-tags: [tech,antenna]
+tags: [tech, antenna]
 ---
 
 2025/01/12のアンテナ記事
 
 Zennの記事である、「[【レンダリング大全】CSR, SSR, SPA, MPA, PPRの意味、そもそもレンダリングとは【2025年始】](https://zenn.dev/txxm/articles/f04b21949ddab3)」を読んだ学びメモです。
 
-
-
 <!-- truncate -->
 
 ## なんの記事
 
 この記事では、フロントエンド開発における「レンダリング」の概念と、関連する用語（CSR、SSR、SPA、MPA、PPR）の意味について解説している。
-
 
 ## まとめ
 
@@ -38,6 +35,7 @@ HTMLなどを変換したものを OSのグラフィックライブラリに渡�
 Reactがコンポーネントを実行すること。
 
 レンダーフェーズ
+
 - Reactコンポーネントの呼び出しのこと。呼び出しによって仮想DOMの更新を行う。レンダーは再帰的に行われる。
 - 2種類ある
   - 初回レンダー
@@ -46,6 +44,7 @@ Reactがコンポーネントを実行すること。
     - state の更新によってレンダーがトリガーされた関数コンポーネントを、React が呼び出す
 
 コミットフェーズ
+
 - 仮想DOMの変更を実際のDOMに反映すること
 - 2種類ある
   - 初回レンダー後
@@ -53,12 +52,11 @@ Reactがコンポーネントを実行すること。
   - 再レンダー後
     - レンダー間で仮想DOMに違いが生じた場合にのみ、DOMノードを変更します
 
-
 ペイント(ブラウザレンダリング)
+
 - ブラウザへ描画
 
 SEE: https://ja.react.dev/learn/render-and-commit
-
 
 ### 各種レンダリング手法
 
@@ -73,6 +71,7 @@ SEE: https://ja.react.dev/learn/render-and-commit
 サーバーサイドでHTMLを生成し、クライアントに送信する手法。初回表示時に完全なHTMLを提供し、クライアントでハイドレーションを行う。
 
 💡ハイドレーション
+
 - ブラウザ上でもJavaScriptを実行してページをインタラクティブにすること
 
 #### Static Site Generation (SSG)
@@ -81,9 +80,7 @@ SEE: https://ja.react.dev/learn/render-and-commit
 
 リクエストに応じてレスポンスを都度生成することはできない。
 
-
-
-###  アプリケーションの種類
+### アプリケーションの種類
 
 #### Single-Page Application (SPA)
 
@@ -92,8 +89,8 @@ SEE: https://ja.react.dev/learn/render-and-commit
 #### Multi-Page Application (MPA)
 
 ハードナビゲーション（ブラウザの標準的なページ遷移）を行い、サーバーで生成したHTMLを表示するアプリケーション。
-- ページ遷移時に画面が再読込される
 
+- ページ遷移時に画面が再読込される
 
 #### Partial Prerendering (PPR)
 

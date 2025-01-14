@@ -13,7 +13,7 @@ As a celebration of 2025, I rebuilt my new portfolio website with [Docusaurus](h
 
 ## About technology
 
-I adopted [Docusaurus](https://docusaurus.io/). It is a framework which enables us to create OSS document websites easily. Thanks to its excellent functions, we can also use it for building personal websites. 
+I adopted [Docusaurus](https://docusaurus.io/). It is a framework which enables us to create OSS document websites easily. Thanks to its excellent functions, we can also use it for building personal websites.
 
 The reasons why I chose Docusaurus are as follows:
 
@@ -23,7 +23,6 @@ The reasons why I chose Docusaurus are as follows:
 - Syntax highlighting is included as a standard feature.
 - It offers a sophisticated default design.
 - It's easy to create custom pages using React.
-
 
 I have built similar portfolio sites using a variety of frameworks, including Hugo, Gatsby, SvelteKit, Next.js, and Nuxt.js. However, Docusaurus is the best way to do it for me. I found Docusaurus to be easiest to buid and maintain, requiring less effort to write CSS for responsive design.
 
