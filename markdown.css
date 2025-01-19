@@ -1,45 +1,46 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 * {
-    font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 table {
-    border-collapse: collapse; /* セルの間の隙間をなくす */
-    width: 100%; /* テーブル全体を幅いっぱいにする */
-    margin: 20px 0; /* 上下に余白を追加 */
-    font-size: 16px; /* フォントサイズ */
-    font-family: 'Yu Gothic', 'Meiryo', sans-serif; /* フォント設定 */
-    text-align: left; /* 左揃え */
-    word-wrap: break-word; /* 長い単語を折り返す */
-  }
-  
-  table th, table td {
-    border: 1px solid #ddd; /* 薄い境界線 */
-    padding: 12px 16px; /* セル内の余白を大きくして見やすく */
-    vertical-align: top; /* セル内のテキストを上揃え */
-  }
-  
-  table th {
-    background-color: #f4f4f4; /* ヘッダー背景色 */
-    font-weight: bold; /* ヘッダーの太字化 */
-    white-space: nowrap; /* ヘッダーのテキストを改行しない */
-  }
-  
-  table td {
-    white-space: nowrap; /* 必要に応じて改行を防止 */
-  }
-  
-  table tr:nth-child(even) {
-    background-color: #f9f9f9; /* 偶数行の背景色 */
-  }
-  
-  table tr:hover {
-    background-color: #f1f1f1; /* ホバー時の行背景色 */
-  }
- 
+  border-collapse: collapse; /* セルの間の隙間をなくす */
+  width: 100%; /* テーブル全体を幅いっぱいにする */
+  margin: 20px 0; /* 上下に余白を追加 */
+  font-size: 16px; /* フォントサイズ */
+  font-family: "Yu Gothic", "Meiryo", sans-serif; /* フォント設定 */
+  text-align: left; /* 左揃え */
+  word-wrap: break-word; /* 長い単語を折り返す */
+}
+
+table th,
+table td {
+  border: 1px solid #ddd; /* 薄い境界線 */
+  padding: 12px 16px; /* セル内の余白を大きくして見やすく */
+  vertical-align: top; /* セル内のテキストを上揃え */
+}
+
+table th {
+  background-color: #f4f4f4; /* ヘッダー背景色 */
+  font-weight: bold; /* ヘッダーの太字化 */
+  white-space: nowrap; /* ヘッダーのテキストを改行しない */
+}
+
+table td {
+  white-space: nowrap; /* 必要に応じて改行を防止 */
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9; /* 偶数行の背景色 */
+}
+
+table tr:hover {
+  background-color: #f1f1f1; /* ホバー時の行背景色 */
+}
+
 h3 {
-    border-left: 8px solid black;
-    padding-left: 10px;
-    box-sizing: border-box;
+  border-left: 8px solid black;
+  padding-left: 10px;
+  box-sizing: border-box;
 }
