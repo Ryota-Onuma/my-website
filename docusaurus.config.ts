@@ -37,7 +37,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          routeBasePath: "blog",
+          routeBasePath: "blog/tech",
         },
         blog: false,
         theme: {
@@ -52,7 +52,7 @@ const config: Config = {
       "@docusaurus/plugin-content-blog",
       {
         id: "diary",
-        routeBasePath: "diary",
+        routeBasePath: "blog/diary",
         path: "./blog/diary",
       },
     ],
@@ -80,7 +80,7 @@ const config: Config = {
           label: "Tech Blog",
           autoCollapseCategories: true,
         },
-        { to: "/diary", label: "Diary", position: "left" },
+        { to: "/blog/diary", label: "Diary", position: "left" },
         {
           type: "localeDropdown",
           position: "right",
