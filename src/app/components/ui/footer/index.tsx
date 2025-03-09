@@ -1,7 +1,9 @@
+import { Box } from "@/app/components/ui/box";
+
 export const Footer = () => {
   return (
-    <footer>
-      <h1>Footer</h1>
-    </footer>
+    <Box as="footer" p={4} textAlign="center">
+      Copyright © 2025 Ryota Onuma
+    </Box>
   );
 };

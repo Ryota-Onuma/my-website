@@ -3,19 +3,18 @@ import { MusicianDuck } from "@/app/components/image";
 import { Box } from "@/app/components/ui/box";
 import { Text } from "@/app/components/ui/text";
 import { Link } from "@/app/components/ui/link";
-import { L } from "node_modules/react-router/dist/development/route-data-H2S3hwhf.d.mts";
 
 type LinkData = {
   displayName: string;
   href: string;
 };
 
-export const Header = () => {
-  const links: LinkData[] = [
-    { displayName: "Home", href: "/" },
-    { displayName: "About", href: "/about" },
-  ];
+const links: LinkData[] = [
+  { displayName: "Home", href: "/" },
+  { displayName: "About", href: "/about" },
+];
 
+export const Header = () => {
   return (
     <Box
       as="header"
@@ -34,7 +33,12 @@ export const Header = () => {
       <Box display={"flex"} alignItems={"center"} gap={"30px"} height={"40px"}>
         <Box display={"flex"} gap={8}>
           {links.map((link) => (
-            <Link key={link.displayName} href={link.href} variant="plain">
+            <Link
+              key={link.displayName}
+              href={link.href}
+              variant="plain"
+              hoverStyle={{ textDecoration: "none" }}
+            >
               <Text key={link.displayName} textStyle={"md"} fontWeight={"bold"}>
                 {link.displayName}
               </Text>
