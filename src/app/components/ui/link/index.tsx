@@ -5,7 +5,6 @@ import { useColorMode } from "@//app/components/ui/theme";
 type LinkProps = {
   href: string;
   children: React.ReactNode | string;
-  variant?: "underline" | "plain";
   hoverStyle?: React.CSSProperties;
 };
 
