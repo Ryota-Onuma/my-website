@@ -5,6 +5,7 @@ import * as React from "react";
 import { LuMoon, LuSun } from "react-icons/lu";
 
 export type ColorMode = "light" | "dark";
+export const isLightMode = (colorMode: ColorMode) => colorMode === "light";
 
 export interface UseColorModeReturn {
   colorMode: ColorMode;

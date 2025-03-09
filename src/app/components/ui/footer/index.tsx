@@ -1,8 +1,20 @@
 import { Box } from "@/app/components/ui/box";
 
-export const Footer = () => {
+type FooterProps = {
+  width: string;
+  height: string;
+};
+
+export const Footer = ({ width, height }: FooterProps) => {
   return (
-    <Box as="footer" p={4} textAlign="center">
+    <Box
+      as="footer"
+      width={width}
+      height={height}
+      boxSizing={"border-box"}
+      p={4}
+      textAlign="center"
+    >
       Copyright © 2025 Ryota Onuma
     </Box>
   );
