@@ -1,4 +1,3 @@
-import { ThemeProvider } from "./theme";
 import { UIProvider } from "./ui";
 
 type AppProviderProps = {
@@ -6,9 +5,5 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  return (
-    <UIProvider>
-      <ThemeProvider>{children}</ThemeProvider>
-    </UIProvider>
-  );
+  return <UIProvider>{children}</UIProvider>;
 };
