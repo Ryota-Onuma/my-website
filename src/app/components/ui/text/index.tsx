@@ -1,6 +1,4 @@
 import { Text as ChakraUIText } from "@chakra-ui/react";
-import { Theme } from "@chakra-ui/react";
-import { useColorMode } from "@//app/components/ui/theme";
 
 export type fontWeight =
   | "light"
@@ -34,16 +32,13 @@ export const Text = ({
   fontWeight,
   ...rest
 }: TextProps) => {
-  const { colorMode } = useColorMode();
   return (
-    <Theme appearance={colorMode}>
-      <ChakraUIText
-        textStyle={textStyle ?? "md"}
-        fontWeight={fontWeight ?? "normal"}
-        {...rest}
-      >
-        {children}
-      </ChakraUIText>
-    </Theme>
+    <ChakraUIText
+      textStyle={textStyle ?? "md"}
+      fontWeight={fontWeight ?? "normal"}
+      {...rest}
+    >
+      {children}
+    </ChakraUIText>
   );
 };

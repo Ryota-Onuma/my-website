@@ -7,7 +7,7 @@ import { InternalLink } from "@/app/components/ui/link";
 const Navigations = () => {
   const links = [
     { displayName: "Home", href: "/" },
-    { displayName: "About", href: "/about" },
+    { displayName: "Tech Blog", href: "/blog/tech" },
   ];
 
   return (
@@ -30,7 +30,6 @@ export const Header = ({ width, height }: HeaderProps) => {
   return (
     <Box
       as="header"
-      color="white"
       width={width}
       height={height}
       py={4}
@@ -38,6 +37,7 @@ export const Header = ({ width, height }: HeaderProps) => {
       boxSizing={"border-box"}
       display={"flex"}
       justifyContent={"space-between"}
+      alignItems={"center"}
     >
       <InternalLink href={"/"}>
         <Box display={"flex"} alignItems={"center"} gap={4}>

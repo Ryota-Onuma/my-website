@@ -2,26 +2,32 @@ import { Outlet } from "react-router";
 import { Header } from "@/app/components/ui/header";
 import { Footer } from "@/app/components/ui/footer";
 import { Box } from "@/app/components/ui/box";
-
-const headerWidth = "100%";
-const headerHeight = "60px";
-const footerWidth = "100%";
-const footerHeight = "60px";
+import { useColorMode } from "@/app/components/ui/theme";
+import { Theme } from "@chakra-ui/react";
+import {
+  headerWidth,
+  headerHeight,
+  footerWidth,
+  footerHeight,
+  minBodyHeight,
+} from "../consts";
 
 export const Layout = () => {
+  const { colorMode } = useColorMode();
   return (
     <>
-      <Header width={headerWidth} height={headerHeight} />
-      <Box
-        as="main"
-        p={12}
-        boxSizing={"border-box"}
-        width={headerWidth}
-        minHeight={`calc(100vh - ${headerHeight} - ${footerHeight})`}
-      >
-        <Outlet />
-      </Box>
-      <Footer width={footerWidth} height={footerHeight} />
+      <Theme appearance={colorMode}>
+        <Header width={headerWidth} height={headerHeight} />
+        <Box
+          as="main"
+          boxSizing={"border-box"}
+          width={headerWidth}
+          minHeight={minBodyHeight}
+        >
+          <Outlet />
+        </Box>
+        <Footer width={footerWidth} height={footerHeight} />
+      </Theme>
     </>
   );
 };

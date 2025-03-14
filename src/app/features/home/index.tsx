@@ -44,7 +44,7 @@ const SNSLinks: React.ReactNode[] = [
 
 const Home = () => {
   return (
-    <Box display="flex" flexDirection="column" gap={"50px"}>
+    <Box display="flex" flexDirection="column" gap={"50px"} padding={12}>
       <Section heading="こんにちは👋">
         <Text>私のポートフォリオサイトへようこそ</Text>
         <Text>
