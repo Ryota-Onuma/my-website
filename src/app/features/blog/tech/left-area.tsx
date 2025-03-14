@@ -12,8 +12,8 @@ export const LeftArea = ({ style: { width } }: LeftAreaProps) => {
     <Box
       display="flex"
       flexDirection="column"
-      backgroundColor="red"
       width={width}
+      px={4}
       minHeight={minBodyHeight}
       as="div"
     >
