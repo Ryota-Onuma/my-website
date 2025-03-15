@@ -1,12 +1,33 @@
 // import { Box } from "@/app/components/ui/box";
 import { Card } from "@/app/components/ui/card";
 
-export const BlogCard = () => {
+type BlogCardProps = {
+  title: string;
+  description: string;
+  link: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+};
+
+export const BlogCard = ({
+  title,
+  description,
+  link,
+  image,
+}: BlogCardProps) => {
   return (
     <Card
-      title="Clineの使い方"
-      description="VSCodeの拡張機能として使える、AIアシスタントのClineを試してみました。使えるようにするまでのやり方を書いておきます。"
-      link="/#"
+      title={title}
+      description={description}
+      link={link}
+      image={
+        image ?? {
+          src: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+          alt: `${title} thumbnail`,
+        }
+      }
     />
   );
 };

@@ -1,64 +1,22 @@
 import { Box } from "@/app/components/ui/box";
-import { Text } from "@/app/components/ui/text";
 import { Image as ImageComponent } from "@/app/components/ui/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Pre } from "./code-block";
+
 import type { ComponentProps } from "react";
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Heading6,
+  P,
+} from "./heading";
 
 type ContentProps = {
   markdownContent: string;
-};
-
-const Heading1 = ({ children, ...props }: ComponentProps<"h1">) => {
-  return (
-    <Text fontSize="3xl" fontWeight="bold" {...props}>
-      {children}
-    </Text>
-  );
-};
-
-const Heading2 = ({ children, ...props }: ComponentProps<"h2">) => {
-  return (
-    <Text fontSize="2xl" fontWeight="bold" {...props}>
-      {children}
-    </Text>
-  );
-};
-
-const Heading3 = ({ children, ...props }: ComponentProps<"h3">) => {
-  return (
-    <Text fontSize="xl" fontWeight="bold" {...props}>
-      {children}
-    </Text>
-  );
-};
-
-const Heading4 = ({ children, ...props }: ComponentProps<"h4">) => {
-  return (
-    <Text fontSize="lg" fontWeight="bold" {...props}>
-      {children}
-    </Text>
-  );
-};
-
-const Heading5 = ({ children, ...props }: ComponentProps<"h5">) => {
-  return (
-    <Text fontSize="md" fontWeight="bold" {...props}>
-      {children}
-    </Text>
-  );
-};
-
-const Heading6 = ({ children, ...props }: ComponentProps<"h6">) => {
-  return (
-    <Text fontSize="sm" fontWeight="bold" {...props}>
-      {children}
-    </Text>
-  );
-};
-
-const P = ({ children, ...props }: ComponentProps<"p">) => {
-  return <Text {...props}>{children}</Text>;
 };
 
 const Image = ({ src, alt }: ComponentProps<"img">) => {
@@ -79,6 +37,7 @@ export const Content = ({ markdownContent }: ContentProps) => {
           h6: Heading6,
           p: P,
           img: Image,
+          pre: Pre, // Code Block
         }}
       >
         {markdownContent}

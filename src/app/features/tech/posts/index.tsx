@@ -2,10 +2,27 @@ import { Box } from "@/app/components/ui/box";
 import { Text } from "@/app/components/ui/text";
 import { LeftArea } from "./left-area";
 import { RightArea } from "./right-area";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { useMediaQuery } from "@/app/hooks/useMediaQuery";
+import useFindPosts, { Post } from "@/app/hooks/usePosts";
+import { useEffect, useState } from "react";
 
 const TechPosts = () => {
-  const isPC = useBreakpointValue({ base: false, md: true });
+  const { isDesktop } = useMediaQuery();
+  const { fetchPosts } = useFindPosts();
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetchPosts();
+        if (response) {
+          setPosts(response);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
 
   return (
     <>
@@ -22,8 +39,17 @@ const TechPosts = () => {
         </Text>
       </Box>
       <Box display="flex" width="full" justifyContent="center">
-        {isPC && <LeftArea style={{ width: "1/5" }} />}
-        <RightArea style={{ width: isPC ? "4/5" : "10/12" }} />
+        {isDesktop && <LeftArea style={{ width: "1/5" }} />}
+        <RightArea
+          posts={posts.map((post) => ({
+            id: post.id,
+            title: post.metadata.title ?? "無題",
+            description: post.metadata.description ?? "",
+            content: post.content,
+            thumbnail: post.metadata.thumbnail,
+          }))}
+          style={{ width: isDesktop ? "4/5" : "10/12" }}
+        />
       </Box>
     </>
   );

@@ -2,13 +2,22 @@ import { Box } from "@/app/components/ui/box";
 import { minBodyHeight } from "@/app/consts";
 import { BlogCard } from "./components/card";
 
+type Post = {
+  id: string;
+  title: string;
+  content: string;
+  description: string;
+  thumbnail?: string;
+};
+
 type RightAreaProps = {
+  posts: Post[];
   style: {
     width: string;
   };
 };
 
-export const RightArea = ({ style: { width } }: RightAreaProps) => {
+export const RightArea = ({ posts, style: { width } }: RightAreaProps) => {
   return (
     <Box
       display="flex"
@@ -22,10 +31,22 @@ export const RightArea = ({ style: { width } }: RightAreaProps) => {
       boxSizing={"border-box"}
       as="div"
     >
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
+      {posts.map((post) => (
+        <BlogCard
+          key={post.id}
+          title={post.title}
+          description={post.description}
+          link={`/tech/posts/${post.id}`}
+          image={
+            post.thumbnail
+              ? {
+                  src: post.thumbnail,
+                  alt: `${post.title} thumbnail`,
+                }
+              : undefined
+          }
+        />
+      ))}
     </Box>
   );
 };
