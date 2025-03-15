@@ -1,5 +1,5 @@
 import { ColorModeButton } from "@/app/components/ui/theme";
-import { MusicianDuck } from "@/app/components/image";
+import { MusicianDuck } from "@/app/components/ui/image";
 import { Box } from "@/app/components/ui/box";
 import { Text } from "@/app/components/ui/text";
 import { InternalLink } from "@/app/components/ui/link";
@@ -7,7 +7,7 @@ import { InternalLink } from "@/app/components/ui/link";
 const Navigations = () => {
   const links = [
     { displayName: "Home", href: "/" },
-    { displayName: "Tech Blog", href: "/blog/tech" },
+    { displayName: "Tech Blog", href: "/tech/posts/" },
   ];
 
   return (

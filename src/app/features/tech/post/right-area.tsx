@@ -1,6 +1,6 @@
 import { Box } from "@/app/components/ui/box";
 import { minBodyHeight } from "@/app/consts";
-import { BlogCard } from "@/app/features/blog/tech/components/card";
+import { BlogCard } from "@/app/features/tech/posts/components/card";
 
 type RightAreaProps = {
   style: {
@@ -21,11 +21,6 @@ export const RightArea = ({ style: { width } }: RightAreaProps) => {
       p={4}
       boxSizing={"border-box"}
       as="div"
-    >
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-    </Box>
+    ></Box>
   );
 };

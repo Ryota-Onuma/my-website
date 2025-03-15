@@ -4,7 +4,7 @@ import { LeftArea } from "./left-area";
 import { RightArea } from "./right-area";
 import { useBreakpointValue } from "@chakra-ui/react";
 
-const TechBlog = () => {
+const TechPosts = () => {
   const isPC = useBreakpointValue({ base: false, md: true });
 
   return (
@@ -28,4 +28,4 @@ const TechBlog = () => {
     </>
   );
 };
-export default TechBlog;
+export default TechPosts;
