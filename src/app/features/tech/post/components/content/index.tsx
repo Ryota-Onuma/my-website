@@ -3,7 +3,6 @@ import { Image as ImageComponent } from "@/app/components/ui/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Pre } from "./code-block";
-
 import type { ComponentProps } from "react";
 import {
   Heading1,
@@ -14,7 +13,6 @@ import {
   Heading6,
   P,
 } from "./heading";
-import { sluggerInstance } from "@/app/lib/slugger";
 
 type ContentProps = {
   markdownContent: string;
@@ -25,7 +23,6 @@ const Image = ({ src, alt }: ComponentProps<"img">) => {
 };
 
 export const Content = ({ markdownContent }: ContentProps) => {
-  sluggerInstance.reset();
   return (
     <Box>
       <ReactMarkdown

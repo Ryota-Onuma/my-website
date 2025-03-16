@@ -1,4 +1,5 @@
-import { Link as RouterLink } from "react-router";
+import { href, Link as RouterLink } from "react-router";
+import { HashLink as RouterHashLink } from "react-router-hash-link";
 import { Link as ChakraUILink, SystemStyleObject } from "@chakra-ui/react";
 
 import { Nested } from "node_modules/@chakra-ui/react/dist/types/styled-system/css.types";
@@ -49,5 +50,32 @@ export const ExternalLink = ({
     >
       {children}
     </ChakraUILink>
+  );
+};
+
+type HashLinkProps = {
+  children: React.ReactNode;
+  to: string;
+  hoverStyle?: React.CSSProperties;
+  style?: React.CSSProperties;
+  scroll: (el: HTMLElement) => void;
+};
+
+export const HashLink = ({
+  children,
+  to,
+  hoverStyle,
+  style,
+  scroll,
+}: HashLinkProps) => {
+  return (
+    <RouterHashLink
+      smooth
+      to={to}
+      scroll={scroll}
+      style={{ ...style, ...(hoverStyle as React.CSSProperties) }}
+    >
+      {children}
+    </RouterHashLink>
   );
 };

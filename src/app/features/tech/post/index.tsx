@@ -3,14 +3,16 @@ import { RightArea } from "./right-area";
 import { LeftArea } from "./left-area";
 import { MiddleArea } from "./middle-area";
 import { Box } from "@/app/components/ui/box";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import useFindPosts, { Post } from "@/app/hooks/usePosts";
+import { Slugger } from "@/app/lib/slugger";
 
 const TechPost = () => {
   const { postId } = useParams();
   const { findPost } = useFindPosts();
   const [post, setPost] = useState<Post>();
+
   const { isDesktop } = useMediaQuery();
   useEffect(() => {
     (async () => {
@@ -29,17 +31,30 @@ const TechPost = () => {
     })();
   }, [postId]);
 
+  const toc = useMemo(() => {
+    if (!post?.content) return [];
+    const slugger = new Slugger();
+    slugger.reset();
+    return slugger.generateToc(post.content);
+  }, [post?.content]);
+
+  const scrollContainerRef = useRef<HTMLDivElement>(
+    null
+  ) as React.RefObject<HTMLDivElement>;
+
   return (
     <Box display="flex" width="full" justifyContent="center">
       {isDesktop && <LeftArea style={{ width: "1/5" }} />}
       <MiddleArea
         title={post?.metadata.title ?? "無題"}
         markdownContent={post?.content ?? ""}
+        scrollContainerRef={scrollContainerRef}
         style={{ width: isDesktop ? "3/5" : "full" }}
       />
       {isDesktop && (
         <RightArea
-          markdownContent={post?.content ?? ""}
+          scrollContainerRef={scrollContainerRef}
+          toc={toc}
           style={{ width: "1/5" }}
         />
       )}

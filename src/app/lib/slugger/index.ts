@@ -1,6 +1,6 @@
 import GitHubSlugger from "github-slugger";
 
-class Slugger {
+export class Slugger {
   private slugger: GitHubSlugger;
 
   constructor() {
@@ -30,6 +30,3 @@ class Slugger {
     return toc;
   }
 }
-
-// NOTE: シングルトンとして使わないと、同じタイトルの場合のslugに使う採番が狂う
-export const sluggerInstance = new Slugger();
