@@ -14,6 +14,7 @@ import {
   Heading6,
   P,
 } from "./heading";
+import { sluggerInstance } from "@/app/lib/slugger";
 
 type ContentProps = {
   markdownContent: string;
@@ -24,10 +25,11 @@ const Image = ({ src, alt }: ComponentProps<"img">) => {
 };
 
 export const Content = ({ markdownContent }: ContentProps) => {
+  sluggerInstance.reset();
   return (
     <Box>
       <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[remarkGfm]}
         components={{
           h1: Heading1,
           h2: Heading2,

@@ -33,7 +33,14 @@ const useFindPosts = () => {
 
   const findPost = useCallback(
     async (postId: string): Promise<Post> => {
-      const post = posts[`@/app/contents/ja/${postId}.md`];
+      const path = `/ja/${postId}.md`;
+      const post = Object.entries(posts).find(([key]) =>
+        key.includes(path)
+      )?.[1];
+
+      if (!post) {
+        throw new FindPostsError(`Post not found: ${postId}`);
+      }
 
       try {
         setLoading(true);
@@ -48,6 +55,9 @@ const useFindPosts = () => {
           content: parsed.content,
         };
       } catch (error) {
+        if (error instanceof Error) {
+          throw new FindPostsError(error.message);
+        }
         throw new FindPostsError("Failed to fetch post");
       } finally {
         setLoading(false);

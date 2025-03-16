@@ -5,21 +5,44 @@ import { MiddleArea } from "./middle-area";
 import { Box } from "@/app/components/ui/box";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
+import useFindPosts, { Post } from "@/app/hooks/usePosts";
 
 const TechPost = () => {
   const { postId } = useParams();
-  const [content, setContent] = useState("");
-  const [error, setError] = useState("");
+  const { findPost } = useFindPosts();
+  const [post, setPost] = useState<Post>();
   const { isDesktop } = useMediaQuery();
+  useEffect(() => {
+    (async () => {
+      try {
+        if (!postId) {
+          return;
+        }
+        const response = await findPost(postId);
+
+        if (response) {
+          setPost(response);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, [postId]);
 
   return (
     <Box display="flex" width="full" justifyContent="center">
       {isDesktop && <LeftArea style={{ width: "1/5" }} />}
       <MiddleArea
-        markdownContent={content}
+        title={post?.metadata.title ?? "無題"}
+        markdownContent={post?.content ?? ""}
         style={{ width: isDesktop ? "3/5" : "full" }}
       />
-      {isDesktop && <RightArea style={{ width: "1/5" }} />}
+      {isDesktop && (
+        <RightArea
+          markdownContent={post?.content ?? ""}
+          style={{ width: "1/5" }}
+        />
+      )}
     </Box>
   );
 };

@@ -5,6 +5,7 @@ import { Title } from "./components/title";
 import { Content } from "./components/content";
 
 type MiddleAreaProps = {
+  title: string;
   markdownContent: string;
   style: {
     width: string;
@@ -12,6 +13,7 @@ type MiddleAreaProps = {
 };
 
 export const MiddleArea = ({
+  title,
   markdownContent,
   style: { width },
 }: MiddleAreaProps) => {
@@ -26,7 +28,7 @@ export const MiddleArea = ({
       gap={12}
     >
       <Thumbnail />
-      <Title content="blog title" />
+      <Title content={title} />
       <Content markdownContent={markdownContent} />
     </Box>
   );

@@ -1,7 +1,7 @@
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import type { ClassAttributes, ComponentProps, HTMLAttributes } from "react";
+import type { ClassAttributes, HTMLAttributes } from "react";
 import type { ExtraProps } from "react-markdown";
 
 import { Box } from "@/app/components/ui/box";
@@ -38,10 +38,6 @@ const CodeBlock = ({ fileName, language, children }: CodeBlockProps) => {
     </Box>
   );
 };
-
-// export const BasicCode = ({ children, ...props }: ComponentProps<"code">) => {
-//   return <Code {...props}>{children}</Code>;
-// };
 
 export const Pre = ({
   children,
