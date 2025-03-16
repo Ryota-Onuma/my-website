@@ -49,9 +49,16 @@ const useFindPosts = () => {
         const rawContent = await response.text();
         const parsed = parseMarkdown(rawContent);
         if (!parsed) throw new FindPostsError("Failed to parse front matter");
+
+        const metadata = {
+          title: parsed.metadata.title ?? "無題",
+          description: parsed.metadata.description ?? "",
+          thumbnail: parsed.metadata.thumbnail,
+        };
+
         return {
           id: getPostId(postURL),
-          metadata: parsed.metadata,
+          metadata: metadata,
           content: parsed.content,
         };
       } catch (error) {

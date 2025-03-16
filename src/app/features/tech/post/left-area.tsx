@@ -17,7 +17,7 @@ export const LeftArea = ({ style: { width } }: LeftAreaProps) => {
       minHeight={minBodyHeight}
       as="div"
     >
-      left
+      <> </>
     </Box>
   );
 };

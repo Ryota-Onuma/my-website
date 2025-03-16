@@ -8,7 +8,9 @@ type TitleProps = {
 export const Title = ({ content }: TitleProps) => {
   return (
     <Box>
-      <Text fontSize="5xl">{content}</Text>
+      <Text fontSize="4xl" as="h1" lineHeight="4xl">
+        {content}
+      </Text>
     </Box>
   );
 };
