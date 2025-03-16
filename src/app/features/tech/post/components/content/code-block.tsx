@@ -15,7 +15,7 @@ type CodeBlockProps = {
 
 const CodeBlock = ({ fileName, language, children }: CodeBlockProps) => {
   return (
-    <Box my={4}>
+    <Box my={12}>
       {fileName && (
         <Box
           as="div"

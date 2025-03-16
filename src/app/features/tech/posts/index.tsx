@@ -1,7 +1,7 @@
 import { Box } from "@/app/components/ui/box";
 import { Text } from "@/app/components/ui/text";
 import { LeftArea } from "./left-area";
-import { RightArea } from "./right-area";
+import { TocArea } from "./right-area";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import useFindPosts, { Post } from "@/app/hooks/usePosts";
 import { useEffect, useState } from "react";
@@ -40,7 +40,7 @@ const TechPosts = () => {
       </Box>
       <Box display="flex" width="full" justifyContent="center">
         {isDesktop && <LeftArea style={{ width: "1/5" }} />}
-        <RightArea
+        <TocArea
           posts={posts.map((post) => ({
             id: post.id,
             title: post.metadata.title ?? "無題",

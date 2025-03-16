@@ -1,7 +1,6 @@
 import { useParams } from "react-router";
-import { RightArea } from "./right-area";
-import { LeftArea } from "./left-area";
-import { MiddleArea } from "./middle-area";
+import { TocArea } from "./toc-area";
+import { MainArea } from "./main-area";
 import { Box } from "@/app/components/ui/box";
 import { useEffect, useState, useRef, useMemo } from "react";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
@@ -44,15 +43,17 @@ const TechPost = () => {
 
   return (
     <Box display="flex" width="full" justifyContent="center">
-      {isDesktop && <LeftArea style={{ width: "1/5" }} />}
-      <MiddleArea
+      <MainArea
         title={post?.metadata.title ?? "無題"}
         markdownContent={post?.content ?? ""}
         scrollContainerRef={scrollContainerRef}
-        style={{ width: isDesktop ? "3/5" : "full" }}
+        style={{
+          leftPadding: isDesktop ? "20%" : "5%",
+          rightPadding: isDesktop ? "20%" : "5%",
+        }}
       />
       {isDesktop && (
-        <RightArea
+        <TocArea
           scrollContainerRef={scrollContainerRef}
           toc={toc}
           style={{ width: "1/5" }}

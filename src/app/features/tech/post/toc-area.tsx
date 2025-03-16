@@ -3,7 +3,7 @@ import { minBodyHeight } from "@/app/consts";
 import React from "react";
 import { Toc, TocItem } from "./components/toc";
 
-type RightAreaProps = {
+type TocAreaProps = {
   scrollContainerRef: React.RefObject<HTMLDivElement>;
   toc: TocItem[];
   style: {
@@ -11,19 +11,14 @@ type RightAreaProps = {
   };
 };
 
-export const RightArea = ({
+export const TocArea = ({
   scrollContainerRef,
   toc,
   style: { width },
-}: RightAreaProps) => {
+}: TocAreaProps) => {
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      gap={4}
-      width={width}
       minHeight={minBodyHeight}
-      p={4}
       boxSizing={"border-box"}
       as="div"
       position={"relative"}
@@ -36,6 +31,7 @@ export const RightArea = ({
         width={width}
         maxHeight={minBodyHeight}
         overflowY={"auto"}
+        zIndex={100}
       >
         <Toc toc={toc} scrollContainerRef={scrollContainerRef} />
       </Box>

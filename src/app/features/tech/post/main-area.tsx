@@ -5,30 +5,33 @@ import { Title } from "./components/title";
 import { Content } from "./components/content";
 import { Slugger } from "@/app/lib/slugger";
 
-type MiddleAreaProps = {
+type MainAreaProps = {
   title: string;
   markdownContent: string;
   scrollContainerRef: React.RefObject<HTMLDivElement>;
   style: {
-    width: string;
+    leftPadding: string;
+    rightPadding: string;
   };
 };
 
-export const MiddleArea = ({
+export const MainArea = ({
   title,
   markdownContent,
   scrollContainerRef,
-  style: { width },
-}: MiddleAreaProps) => {
+  style: { leftPadding, rightPadding },
+}: MainAreaProps) => {
   new Slugger().reset();
+  console.log(leftPadding, rightPadding);
   return (
     <Box
       display="flex"
       flexDirection="column"
-      width={width}
-      px={4}
-      minHeight={minBodyHeight}
-      height={`calc(100vh - 80px)`} // ←heightを明示
+      width={"full"}
+      pl={leftPadding}
+      pr={rightPadding}
+      boxSizing={"border-box"}
+      height={minBodyHeight} // ←heightを明示
       ref={scrollContainerRef}
       as="div"
       gap={12}
