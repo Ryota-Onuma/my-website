@@ -10,14 +10,14 @@ type Post = {
   thumbnail?: string;
 };
 
-type TocAreaProps = {
+type RightAreaProps = {
   posts: Post[];
   style: {
     width: string;
   };
 };
 
-export const TocArea = ({ posts, style: { width } }: TocAreaProps) => {
+export const RightArea = ({ posts, style: { width } }: RightAreaProps) => {
   return (
     <Box
       display="flex"
