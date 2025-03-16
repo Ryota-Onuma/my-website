@@ -6,6 +6,7 @@ import type { ExtraProps } from "react-markdown";
 
 import { Box } from "@/app/components/ui/box";
 import { Code } from "@/app/components/ui/code";
+import { Clipboard } from "@/app/components/ui/clipboard";
 
 type CodeBlockProps = {
   fileName?: string;
@@ -14,8 +15,15 @@ type CodeBlockProps = {
 };
 
 const CodeBlock = ({ fileName, language, children }: CodeBlockProps) => {
+  const contents = String(children).replace(/\n$/, "");
+  if (!contents) {
+    return null;
+  }
   return (
-    <Box my={12}>
+    <Box my={12} position={"relative"}>
+      <Box position={"absolute"} right={4} top={10}>
+        <Clipboard value={contents} />
+      </Box>
       {fileName && (
         <Box
           as="div"
@@ -33,7 +41,7 @@ const CodeBlock = ({ fileName, language, children }: CodeBlockProps) => {
         style={dracula}
         customStyle={{ padding: "20px" }}
       >
-        {String(children).replace(/\n$/, "")}
+        {contents}
       </SyntaxHighlighter>
     </Box>
   );

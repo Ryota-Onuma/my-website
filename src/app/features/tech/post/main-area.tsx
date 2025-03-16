@@ -22,7 +22,6 @@ export const MainArea = ({
   style: { leftPadding, rightPadding },
 }: MainAreaProps) => {
   new Slugger().reset();
-  console.log(leftPadding, rightPadding);
   return (
     <Box
       display="flex"
