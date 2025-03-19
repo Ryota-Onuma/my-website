@@ -2,12 +2,13 @@ import { Box } from "@/app/components/ui/box";
 import { minBodyHeight } from "@/app/consts";
 import { BlogCard } from "./components/card";
 
-type Post = {
+export type Post = {
   id: string;
   title: string;
   content: string;
   description: string;
   thumbnail?: string;
+  tags: string[];
 };
 
 type RightAreaProps = {
@@ -26,10 +27,10 @@ export const RightArea = ({ posts, style: { width } }: RightAreaProps) => {
       flexWrap="wrap"
       gap={4}
       width={width}
-      minHeight={minBodyHeight}
-      p={4}
+      height={minBodyHeight}
       boxSizing={"border-box"}
       as="div"
+      overflowY={"auto"}
     >
       {posts.map((post) => (
         <BlogCard
@@ -45,6 +46,7 @@ export const RightArea = ({ posts, style: { width } }: RightAreaProps) => {
                 }
               : undefined
           }
+          tags={post.tags}
         />
       ))}
     </Box>

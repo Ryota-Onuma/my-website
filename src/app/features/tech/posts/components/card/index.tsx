@@ -9,6 +9,7 @@ type BlogCardProps = {
     src: string;
     alt: string;
   };
+  tags: string[];
 };
 
 export const BlogCard = ({
@@ -16,6 +17,7 @@ export const BlogCard = ({
   description,
   link,
   image,
+  tags,
 }: BlogCardProps) => {
   return (
     <Card
@@ -28,6 +30,7 @@ export const BlogCard = ({
           alt: `${title} thumbnail`,
         }
       }
+      tags={tags}
     />
   );
 };
