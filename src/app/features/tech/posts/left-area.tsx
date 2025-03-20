@@ -28,7 +28,7 @@ export const LeftArea = ({ posts, style: { width } }: LeftAreaProps) => {
       width={width}
       boxSizing={"border-box"}
       as="div"
-      px={8}
+      px={12}
     >
       {posts.map((post) => (
         <BlogCard

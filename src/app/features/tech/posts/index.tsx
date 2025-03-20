@@ -85,15 +85,15 @@ const TechPosts = () => {
   return (
     <>
       <Box display="flex" width="full" flexDirection="column">
-        <Box display="flex" flexDirection="row" width="full" px={8} py={12}>
+        <Box display="flex" flexDirection="row" width="full" p={12}>
           <Text fontSize="5xl" as="h1">
-            {queryTag ? `Posts tagged #${queryTag}` : "All Posts"}
+            {queryTag ? `Blog Posts tagged #${queryTag}` : "All Blog Posts"}
           </Text>
         </Box>
         <Box display="flex" flexDirection="row" width="full">
           <LeftArea
             posts={filteredPosts}
-            style={{ width: isDesktop ? "3/4" : "10/12" }}
+            style={{ width: isDesktop ? "3/4" : "full" }}
           />
           {isDesktop && (
             <RightArea style={{ width: "1/4" }} tags={tagWithCounts} />

@@ -7,7 +7,7 @@ import { InternalLink } from "@/app/components/ui/link";
 const Navigations = () => {
   const links = [
     { displayName: "Home", href: "/" },
-    { displayName: "Tech Blog", href: "/tech/posts/" },
+    { displayName: "Blog", href: "/tech/posts/" },
   ];
 
   return (
