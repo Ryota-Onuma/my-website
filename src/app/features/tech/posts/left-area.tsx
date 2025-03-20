@@ -1,55 +1,52 @@
 import { Box } from "@/app/components/ui/box";
-import { minBodyHeight } from "@/app/consts";
-import { useSearchParams } from "react-router-dom";
+import { BlogCard } from "./components/card";
 
-export type Tag = {
-  name: string;
-  count: number;
+export type Post = {
+  id: string;
+  title: string;
+  content: string;
+  description: string;
+  thumbnail?: string;
+  tags: string[];
 };
 
 type LeftAreaProps = {
-  tags: Tag[];
+  posts: Post[];
   style: {
     width: string;
   };
 };
 
-export const LeftArea = ({ tags, style: { width } }: LeftAreaProps) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const handleClick = (clickedTag: string) => {
-    searchParams.set("tag", clickedTag);
-    setSearchParams(searchParams);
-  };
-
+export const LeftArea = ({ posts, style: { width } }: LeftAreaProps) => {
   return (
     <Box
       display="flex"
-      flexDirection="column"
-      alignItems={"center"}
+      flexDirection="row"
+      justifyContent="space-between"
+      flexWrap="wrap"
+      gap={4}
       width={width}
-      p={8}
-      minHeight={minBodyHeight}
+      boxSizing={"border-box"}
       as="div"
+      px={8}
     >
-      <Box
-        width={"full"}
-        display={"grid"}
-        gridTemplateColumns={"repeat(2, 1fr)"}
-        gap={2}
-      >
-        {tags.map((tag) => (
-          <Box key={tag.name} as="span" fontSize="md" fontWeight="medium">
-            <Box
-              onClick={() => handleClick(tag.name)}
-              as="span"
-              cursor="pointer"
-            >
-              #{tag.name} ({tag.count})
-            </Box>
-          </Box>
-        ))}
-      </Box>
+      {posts.map((post) => (
+        <BlogCard
+          key={post.id}
+          title={post.title}
+          description={post.description}
+          link={`/tech/posts/${post.id}`}
+          image={
+            post.thumbnail
+              ? {
+                  src: post.thumbnail,
+                  alt: `${post.title} thumbnail`,
+                }
+              : undefined
+          }
+          tags={post.tags}
+        />
+      ))}
     </Box>
   );
 };

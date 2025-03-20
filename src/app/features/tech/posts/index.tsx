@@ -1,8 +1,9 @@
 import { Box } from "@/app/components/ui/box";
-import { LeftArea, Tag } from "./left-area";
-import { RightArea, Post as RightAreaPost } from "./right-area";
+import { RightArea, Tag } from "./right-area";
+import { LeftArea, Post as RightAreaPost } from "./left-area";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import useFindPosts, { Post } from "@/app/hooks/usePosts";
+import { Text } from "@/app/components/ui/text";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router";
 
@@ -83,14 +84,21 @@ const TechPosts = () => {
 
   return (
     <>
-      <Box display="flex" width="full" justifyContent="center">
-        {isDesktop && (
-          <LeftArea style={{ width: "1/4" }} tags={tagWithCounts} />
-        )}
-        <RightArea
-          posts={filteredPosts}
-          style={{ width: isDesktop ? "3/4" : "10/12" }}
-        />
+      <Box display="flex" width="full" flexDirection="column">
+        <Box display="flex" flexDirection="row" width="full" px={8} py={12}>
+          <Text fontSize="5xl" as="h1">
+            {queryTag ? `Posts tagged #${queryTag}` : "All Posts"}
+          </Text>
+        </Box>
+        <Box display="flex" flexDirection="row" width="full">
+          <LeftArea
+            posts={filteredPosts}
+            style={{ width: isDesktop ? "3/4" : "10/12" }}
+          />
+          {isDesktop && (
+            <RightArea style={{ width: "1/4" }} tags={tagWithCounts} />
+          )}
+        </Box>
       </Box>
     </>
   );
