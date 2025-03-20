@@ -28,7 +28,7 @@ const TechPost = () => {
         console.error(error);
       }
     })();
-  }, [postId]);
+  }, [postId, findPost]);
 
   const toc = useMemo(() => {
     if (!post?.content) return [];

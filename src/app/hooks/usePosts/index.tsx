@@ -95,7 +95,7 @@ const useFindPosts = () => {
 
       return posts;
     } catch (error) {
-      throw new FindPostsError("Failed to fetch posts");
+      throw new FindPostsError(`Failed to fetch posts ${error}`);
     } finally {
       setLoading(false);
     }
