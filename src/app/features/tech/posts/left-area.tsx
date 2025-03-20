@@ -1,52 +1,116 @@
 import { Box } from "@/app/components/ui/box";
-import { BlogCard } from "./components/card";
+import { Text } from "@/app/components/ui/text";
+import { useColorMode, isLightMode } from "@/app/components/ui/theme";
+import { minBodyHeight } from "@/app/consts";
+import { useSearchParams } from "react-router-dom";
+import { InternalLink } from "@/app/components/ui/link";
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
+import { Tag } from "./types";
+import { useState } from "react";
 
-export type Post = {
-  id: string;
-  title: string;
-  content: string;
-  description: string;
-  thumbnail?: string;
-  tags: string[];
-};
-
-type LeftAreaProps = {
-  posts: Post[];
+export type LeftAreaProps = {
+  tags: Tag[];
   style: {
     width: string;
   };
 };
 
-export const LeftArea = ({ posts, style: { width } }: LeftAreaProps) => {
+export const LeftArea = ({ tags, style: { width } }: LeftAreaProps) => {
+  const { colorMode } = useColorMode();
+
   return (
     <Box
       display="flex"
-      flexDirection="row"
-      justifyContent="space-between"
-      flexWrap="wrap"
-      gap={4}
+      flexDirection="column"
+      alignItems={"flex-end"}
       width={width}
-      boxSizing={"border-box"}
+      minHeight={minBodyHeight}
       as="div"
-      px={12}
+      gap={4}
+      borderRight={
+        isLightMode(colorMode) ? `1px solid black` : `1px solid white`
+      }
     >
-      {posts.map((post) => (
-        <BlogCard
-          key={post.id}
-          title={post.title}
-          description={post.description}
-          link={`/tech/posts/${post.id}`}
-          image={
-            post.thumbnail
-              ? {
-                  src: post.thumbnail,
-                  alt: `${post.title} thumbnail`,
-                }
-              : undefined
-          }
-          tags={post.tags}
-        />
-      ))}
+      <Box width="full" display="flex" flexDirection="column" pl={4}>
+        {tags.map((tag) => (
+          <EachTag key={tag.name} tag={tag} />
+        ))}
+      </Box>
+    </Box>
+  );
+};
+
+type EachTagProps = {
+  tag: Tag;
+};
+
+const EachTag = ({ tag }: EachTagProps) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [clicled, setClicled] = useState(false);
+
+  const updateTag = (clickedTag: string) => {
+    searchParams.set("tag", clickedTag);
+    setSearchParams(searchParams);
+  };
+
+  return (
+    <Box
+      key={tag.name}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      fontSize="md"
+      fontWeight="medium"
+      py={2}
+      pr={4}
+      gap={2}
+    >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        width="full"
+      >
+        <Text
+          onClick={() => updateTag(tag.name)}
+          as="span"
+          cursor="pointer"
+          whiteSpace="nowrap"
+        >
+          {tag.name}
+        </Text>
+        <Box
+          display="flex"
+          alignItems="center"
+          onClick={() => setClicled(!clicled)}
+          cursor="pointer"
+        >
+          {clicled ? <FaChevronDown /> : <FaChevronRight />}
+        </Box>
+      </Box>
+      {clicled && (
+        <Box
+          width="full"
+          display="flex"
+          flexDirection="column"
+          alignItems="flex-start"
+          gap={2}
+        >
+          {tag.posts.map((post) => (
+            <InternalLink key={post.id} href={`/tech/posts/${post.id}`}>
+              <Box
+                width="full"
+                pl={4}
+                cursor="pointer"
+                _hover={{ fontWeight: "extrabold" }}
+              >
+                {post.title}
+              </Box>
+            </InternalLink>
+          ))}
+        </Box>
+      )}
     </Box>
   );
 };

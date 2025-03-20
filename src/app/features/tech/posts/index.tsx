@@ -1,107 +1,97 @@
 import { Box } from "@/app/components/ui/box";
-import { RightArea, Tag } from "./right-area";
-import { LeftArea, Post as RightAreaPost } from "./left-area";
+import { LeftArea, LeftAreaProps } from "./left-area";
+import { Post, Tag } from "./types";
+import { RightArea } from "./right-area";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
-import useFindPosts, { Post } from "@/app/hooks/usePosts";
-import { Text } from "@/app/components/ui/text";
-import { useEffect, useMemo, useState } from "react";
+import useFindPosts, { Post as RawPost } from "@/app/hooks/usePosts";
+import { useEffect, useMemo, useState, memo } from "react";
 import { useLocation } from "react-router";
+
+const LeftAreaMemo = memo<LeftAreaProps>(LeftArea);
 
 const TechPosts = () => {
   const { isDesktop } = useMediaQuery();
   const { fetchPosts } = useFindPosts();
-  const [posts, setPosts] = useState<Post[]>([]);
-  const search = useLocation().search;
-  const query = new URLSearchParams(search);
+  const [rawPosts, setRawPosts] = useState<RawPost[]>([]);
+  const { search } = useLocation();
+
+  // URLSearchParams は search に依存して再生成
+  const query = useMemo(() => new URLSearchParams(search), [search]);
   const queryTag = query.get("tag");
 
+  // 投稿データの取得
   useEffect(() => {
-    (async () => {
+    const fetchData = async () => {
       try {
         const response = await fetchPosts();
         if (response) {
-          setPosts(response);
+          setRawPosts(response);
         }
       } catch (error) {
         console.error(error);
       }
-    })();
+    };
+    fetchData();
   }, [fetchPosts]);
 
-  const rightAreaPosts: RightAreaPost[] = useMemo(
+  // 生データから投稿情報に変換
+  const posts: Post[] = useMemo(
     () =>
-      posts.map((post) => {
-        const metadataTags = post.metadata.tags;
-        let tags: string[];
-        if (Array.isArray(metadataTags)) {
-          tags = metadataTags;
-        } else if (typeof metadataTags === "string") {
-          tags = metadataTags.includes(",")
-            ? metadataTags.split(",").map((tag) => tag.trim())
-            : [post.metadata.tags as string];
-        } else {
-          tags = [];
-        }
-
-        return {
-          id: post.id,
-          title: post.metadata.title ?? "無題",
-          description: post.metadata.description ?? "",
-          content: post.content,
-          thumbnail: post.metadata.thumbnail,
-          tags,
-        };
-      }),
-    [posts]
+      rawPosts.map((post) => ({
+        id: post.id,
+        title: post.metadata.title ?? "無題",
+        description: post.metadata.description ?? "",
+        thumbnail: post.metadata.thumbnail,
+        tags: createTags(post.metadata.tags ?? []),
+        content: post.content,
+      })),
+    [rawPosts]
   );
 
-  const tagWithCounts = useMemo(() => {
-    const counterMap: Map<string, number> = new Map();
-    const tags = rightAreaPosts.map((post) => post.tags).flat();
-
-    tags.forEach((tag) => {
-      if (counterMap.has(tag)) {
-        const currentCount = counterMap.get(tag)!;
-        counterMap.set(tag, currentCount + 1);
-      } else {
-        counterMap.set(tag, 1);
-      }
+  // 投稿内のタグからユニークなタグ一覧と各タグに紐づく投稿を生成
+  const tags: Tag[] = useMemo(() => {
+    const tagMap = new Map<string, Tag>();
+    posts.forEach((post) => {
+      post.tags.forEach((tag) => {
+        if (tagMap.has(tag.name)) {
+          tagMap.get(tag.name)!.posts.push(post);
+        } else {
+          tagMap.set(tag.name, { name: tag.name, posts: [post] });
+        }
+      });
     });
+    return Array.from(tagMap.values());
+  }, [posts]);
 
-    return Array.from(counterMap).map(
-      ([name, count]) =>
-        ({
-          name,
-          count,
-        } as Tag)
+  // クエリパラメータに応じた投稿のフィルタリング
+  const filteredPosts: Post[] = useMemo(() => {
+    if (!queryTag) return posts;
+    return posts.filter((post) =>
+      post.tags.some((tag) => tag.name === queryTag)
     );
-  }, [rightAreaPosts]);
-
-  const filteredPosts = useMemo(() => {
-    if (!queryTag) return rightAreaPosts;
-    return rightAreaPosts.filter((post) => post.tags.includes(queryTag));
-  }, [rightAreaPosts, queryTag]);
+  }, [posts, queryTag]);
 
   return (
-    <>
-      <Box display="flex" width="full" flexDirection="column">
-        <Box display="flex" flexDirection="row" width="full" p={12}>
-          <Text fontSize="5xl" as="h1">
-            {queryTag ? `Blog Posts tagged #${queryTag}` : "All Blog Posts"}
-          </Text>
-        </Box>
-        <Box display="flex" flexDirection="row" width="full">
-          <LeftArea
-            posts={filteredPosts}
-            style={{ width: isDesktop ? "3/4" : "full" }}
-          />
-          {isDesktop && (
-            <RightArea style={{ width: "1/4" }} tags={tagWithCounts} />
-          )}
-        </Box>
+    <Box display="flex" width="full" flexDirection="column" alignItems="center">
+      <Box
+        display="flex"
+        flexDirection="row"
+        width="full"
+        justifyContent={isDesktop ? "space-between" : "center"}
+      >
+        {isDesktop && <LeftAreaMemo style={{ width: "1/4" }} tags={tags} />}
+        <RightArea
+          queryTag={queryTag}
+          posts={filteredPosts}
+          style={{ width: isDesktop ? "3/4" : "11/12" }}
+        />
       </Box>
-    </>
+    </Box>
   );
 };
+
+// タグ文字列配列から Tag オブジェクトの配列に変換するユーティリティ
+const createTags = (tags: string[]): Tag[] =>
+  tags.map((tag) => ({ name: tag, posts: [] }));
 
 export default TechPosts;

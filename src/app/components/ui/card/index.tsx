@@ -1,6 +1,11 @@
-import { Box, Button, Card as ChakraUICard, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Card as ChakraUICard,
+  Image,
+  AspectRatio,
+} from "@chakra-ui/react";
 import { InternalLink } from "@/app/components/ui/link";
-
 import { Text } from "@/app/components/ui/text";
 
 type CardProps = {
@@ -12,12 +17,24 @@ type CardProps = {
   description: string;
   link: string;
   tags: string[];
+  style: {
+    width: string;
+  };
 };
 
-export const Card = ({ image, title, description, link, tags }: CardProps) => {
+export const Card = ({
+  image,
+  title,
+  description,
+  link,
+  tags,
+  style: { width },
+}: CardProps) => {
   return (
-    <ChakraUICard.Root maxW="sm" maxH="lg" overflow="hidden" borderWidth="1px">
-      <Image src={image.src} alt={image.alt} />
+    <ChakraUICard.Root width={width} overflow="hidden" borderWidth="1px">
+      <AspectRatio ratio={16 / 9}>
+        <Image src={image.src} alt={image.alt} objectFit="cover" />
+      </AspectRatio>
       <ChakraUICard.Body gap="2">
         <ChakraUICard.Title>
           <Text>{title}</Text>

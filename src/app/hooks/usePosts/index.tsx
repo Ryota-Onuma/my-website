@@ -54,6 +54,7 @@ const useFindPosts = () => {
           title: parsed.metadata.title ?? "無題",
           description: parsed.metadata.description ?? "",
           thumbnail: parsed.metadata.thumbnail,
+          tags: parsed.metadata.tags ?? [],
         };
 
         return {

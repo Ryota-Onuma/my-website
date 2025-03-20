@@ -3,24 +3,32 @@ import { useEffect, useState } from "react";
 
 type MediaQuery = {
   isMobile: boolean;
+  isTablet: boolean;
   isDesktop: boolean;
 };
 
 export const useMediaQuery = (): MediaQuery => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [media, setMedia] = useState<MediaQuery>({
+    isMobile: false,
+    isTablet: false,
+    isDesktop: false,
+  });
 
-  const isPC = useBreakpointValue({ base: false, md: true });
+  const device = useBreakpointValue({
+    base: "mobile",
+    sm: "mobile",
+    md: "tablet",
+    lg: "desktop",
+    xl: "desktop",
+  });
 
   useEffect(() => {
-    if (isPC) {
-      setIsDesktop(true);
-      setIsMobile(false);
-    } else {
-      setIsDesktop(false);
-      setIsMobile(true);
-    }
-  }, [isPC]);
+    setMedia({
+      isMobile: device === "mobile",
+      isTablet: device === "tablet",
+      isDesktop: device === "desktop",
+    });
+  }, [device]);
 
-  return { isMobile, isDesktop };
+  return media;
 };

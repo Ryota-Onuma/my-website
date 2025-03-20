@@ -3,8 +3,7 @@ export type FrontMatter = {
   date?: string;
   thumbnail?: string;
   description?: string;
-  tags?: string[] | string;
-  [key: string]: unknown; // 他の任意の項目にも対応
+  tags?: string[];
 };
 
 export type ParsedMarkdown = {
@@ -23,16 +22,16 @@ export const parseMarkdown = (markdown: string): ParsedMarkdown | null => {
   const lines = rawFrontMatter.split("\n");
 
   const metadata: FrontMatter = {};
-  let currentKey: keyof FrontMatter | null = null;
+  let currentKey: string | null = null;
 
   // キーと値の行を解析するヘルパー関数
   const parseKeyValue = (
     line: string
-  ): { key: keyof FrontMatter; value: string } | null => {
+  ): { key: string; value: string } | null => {
     const [rawKey, ...rawValue] = line.split(":");
     if (!rawKey || rawValue.length === 0) return null;
     return {
-      key: rawKey.trim() as keyof FrontMatter,
+      key: rawKey.trim(),
       value: rawValue
         .join(":")
         .trim()
@@ -44,17 +43,44 @@ export const parseMarkdown = (markdown: string): ParsedMarkdown | null => {
     // リスト形式（ハイフンで始まる）の行の場合
     if (isListItem(line) && currentKey) {
       const listItem = line.replace(/^\s*-\s+/, "").trim();
-      if (Array.isArray(metadata[currentKey])) {
-        (metadata[currentKey] as string[]).push(listItem);
-      } else {
-        metadata[currentKey] = [listItem];
+      if (currentKey === "tags") {
+        if (!metadata.tags) {
+          metadata.tags = [];
+        }
+        metadata.tags.push(listItem);
       }
     } else {
       // 通常のキー:値 の行の場合
       const parsed = parseKeyValue(line);
       if (!parsed) continue;
-      metadata[parsed.key] = parsed.value;
       currentKey = parsed.key;
+
+      // 期待するキーのみを対象にする
+      switch (parsed.key) {
+        case "title":
+          metadata.title = parsed.value;
+          break;
+        case "date":
+          metadata.date = parsed.value;
+          break;
+        case "thumbnail":
+          metadata.thumbnail = parsed.value;
+          break;
+        case "description":
+          metadata.description = parsed.value;
+          break;
+        case "tags":
+          // コンマ区切りの場合と単一の値の場合を判定
+          if (parsed.value.includes(",")) {
+            metadata.tags = parsed.value.split(",").map((tag) => tag.trim());
+          } else {
+            metadata.tags = parsed.value ? [parsed.value] : [];
+          }
+          break;
+        default:
+          // 想定外のキーは無視するか、必要ならエラーハンドリング
+          break;
+      }
     }
   }
 
