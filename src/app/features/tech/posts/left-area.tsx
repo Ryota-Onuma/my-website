@@ -54,6 +54,10 @@ const EachTag = ({ tag }: EachTagProps) => {
     setSearchParams(searchParams);
   };
 
+  tag.posts.forEach((post) => {
+    console.log(post);
+  });
+
   return (
     <Box
       key={tag.name}

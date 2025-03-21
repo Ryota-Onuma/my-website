@@ -76,11 +76,13 @@ const useFindPosts = () => {
 
   const fetchPosts = useCallback(async (): Promise<Post[]> => {
     const postURLs = Object.values(posts);
+
     try {
       setLoading(true);
       const posts = await Promise.all(
         postURLs.map(async (url) => {
           const postURL = await url();
+          console.log(postURL);
           const response = await fetch(postURL);
           const rawContent = await response.text();
           const parsed = parseMarkdown(rawContent);
