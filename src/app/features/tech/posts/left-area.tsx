@@ -4,10 +4,9 @@ import { useColorMode, isLightMode } from "@/app/components/ui/theme";
 import { minBodyHeight } from "@/app/consts";
 import { useSearchParams } from "react-router-dom";
 import { InternalLink } from "@/app/components/ui/link";
-import { FaChevronDown } from "react-icons/fa";
-import { FaChevronRight } from "react-icons/fa";
+import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 import { Tag } from "./types";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export type LeftAreaProps = {
   tags: Tag[];
@@ -23,7 +22,7 @@ export const LeftArea = ({ tags, style: { width } }: LeftAreaProps) => {
     <Box
       display="flex"
       flexDirection="column"
-      alignItems={"flex-end"}
+      alignItems="flex-end"
       width={width}
       minHeight={minBodyHeight}
       as="div"
@@ -47,16 +46,26 @@ type EachTagProps = {
 
 const EachTag = ({ tag }: EachTagProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [clicled, setClicled] = useState(false);
+  const [opened, setOpened] = useState(false);
+  const [maxHeight, setMaxHeight] = useState("0px");
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const updateTag = (clickedTag: string) => {
     searchParams.set("tag", clickedTag);
     setSearchParams(searchParams);
   };
 
+  // opened の状態が変わったときに、コンテンツの高さを計測して max-height を更新
+  useEffect(() => {
+    if (opened && contentRef.current) {
+      setMaxHeight(`${contentRef.current.scrollHeight}px`);
+    } else {
+      setMaxHeight("0px");
+    }
+  }, [opened]);
+
   return (
     <Box
-      key={tag.name}
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -83,34 +92,39 @@ const EachTag = ({ tag }: EachTagProps) => {
         <Box
           display="flex"
           alignItems="center"
-          onClick={() => setClicled(!clicled)}
+          onClick={() => setOpened(!opened)}
           cursor="pointer"
         >
-          {clicled ? <FaChevronDown /> : <FaChevronRight />}
+          {opened ? <FaChevronDown /> : <FaChevronRight />}
         </Box>
       </Box>
-      {clicled && (
-        <Box
-          width="full"
-          display="flex"
-          flexDirection="column"
-          alignItems="flex-start"
-          gap={2}
-        >
-          {tag.posts.map((post) => (
-            <InternalLink key={post.id} href={`/tech/posts/${post.id}`}>
-              <Box
-                width="full"
-                pl={4}
-                cursor="pointer"
-                _hover={{ fontWeight: "extrabold" }}
-              >
-                {post.title}
-              </Box>
-            </InternalLink>
-          ))}
-        </Box>
-      )}
+      {/* 展開部分：ref で高さを取得し、max-height を動的に更新 */}
+      <Box
+        ref={contentRef}
+        width="full"
+        display="flex"
+        flexDirection="column"
+        alignItems="flex-start"
+        gap={2}
+        style={{
+          maxHeight: maxHeight,
+          overflow: "hidden",
+          transition: "max-height 0.3s ease",
+        }}
+      >
+        {tag.posts.map((post) => (
+          <InternalLink key={post.id} href={`/tech/posts/${post.id}`}>
+            <Box
+              width="full"
+              pl={4}
+              cursor="pointer"
+              _hover={{ fontWeight: "extrabold" }}
+            >
+              {post.title}
+            </Box>
+          </InternalLink>
+        ))}
+      </Box>
     </Box>
   );
 };
