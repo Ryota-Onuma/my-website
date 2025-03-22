@@ -1,5 +1,5 @@
 import { Box } from "@/app/components/ui/box";
-import { minBodyHeight } from "@/app/consts/style";
+import { minBodyHeight } from "@/app/consts";
 import React from "react";
 import { Toc, TocItem } from "./components/toc";
 

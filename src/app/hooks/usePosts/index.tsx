@@ -1,10 +1,13 @@
-import { useCallback } from "react";
+// usePosts.ts
+import { useCallback, useMemo } from "react";
 import { parseMarkdown, FrontMatter } from "@/app/lib/markdown";
-import {
-  NotFoundError,
-  InternalServerError,
-  WrapInternalServerError,
-} from "@/app/lib/error";
+
+class FindPostsError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "PostError";
+  }
+}
 
 export type Post = {
   id: string;
@@ -15,63 +18,70 @@ export type Post = {
 type GlobModule = () => Promise<string>;
 type GlobModules = Record<string, GlobModule>;
 
-const allPosts = import.meta.glob("@/app/contents/ja/*.md", {
-  query: "?url",
-  import: "default",
-}) as GlobModules;
-
-const filteredPosts = Object.fromEntries(
-  Object.entries(allPosts).filter(([filePath]) => !filePath.includes(".draft."))
-);
-
 const useFindPosts = () => {
-  const findPost = useCallback(async (postId: string): Promise<Post> => {
-    const entry = Object.entries(filteredPosts).find(([filePath]) =>
-      filePath.includes(`/${postId}.md`)
+  const posts = useMemo(() => {
+    const allPosts = import.meta.glob("@/app/contents/ja/*.md", {
+      query: "?url",
+      import: "default",
+    }) as GlobModules;
+    return Object.fromEntries(
+      Object.entries(allPosts).filter(
+        ([filePath]) => !filePath.includes(".draft.")
+      )
     );
-    if (!entry) {
-      throw new NotFoundError(`Post not found: ${postId}`);
-    }
-    const [filePath, getUrl] = entry;
-    try {
-      const postURL = await getUrl();
-      const response = await fetch(postURL);
-      const rawContent = await response.text();
-      const parsed = parseMarkdown(rawContent);
-      if (!parsed)
-        throw new InternalServerError("Failed to parse front matter");
-      const metadata = {
-        title: parsed.metadata.title ?? "無題",
-        description: parsed.metadata.description ?? "",
-        thumbnail: parsed.metadata.thumbnail,
-        tags: parsed.metadata.tags ?? [],
-      };
-      const id = filePath.split("/").pop()?.split(".")[0] || "";
-      return { id, metadata, content: parsed.content };
-    } catch (error) {
-      throw WrapInternalServerError(error as Error);
-    }
   }, []);
+
+  const findPost = useCallback(
+    async (postId: string): Promise<Post> => {
+      const entry = Object.entries(posts).find(([filePath]) =>
+        filePath.includes(`/${postId}.md`)
+      );
+      if (!entry) {
+        throw new FindPostsError(`Post not found: ${postId}`);
+      }
+      const [filePath, getUrl] = entry;
+      try {
+        const postURL = await getUrl();
+        const response = await fetch(postURL);
+        const rawContent = await response.text();
+        const parsed = parseMarkdown(rawContent);
+        if (!parsed) throw new FindPostsError("Failed to parse front matter");
+        const metadata = {
+          title: parsed.metadata.title ?? "無題",
+          description: parsed.metadata.description ?? "",
+          thumbnail: parsed.metadata.thumbnail,
+          tags: parsed.metadata.tags ?? [],
+        };
+        const id = filePath.split("/").pop()?.split(".")[0] || "";
+        return { id, metadata, content: parsed.content };
+      } catch (error) {
+        if (error instanceof Error) {
+          throw new FindPostsError(error.message);
+        }
+        throw new FindPostsError("Failed to fetch post");
+      }
+    },
+    [posts]
+  );
 
   const fetchPosts = useCallback(async (): Promise<Post[]> => {
     try {
       const postsList = await Promise.all(
-        Object.entries(filteredPosts).map(async ([filePath, getUrl]) => {
+        Object.entries(posts).map(async ([filePath, getUrl]) => {
           const postURL = await getUrl();
           const response = await fetch(postURL);
           const rawContent = await response.text();
           const parsed = parseMarkdown(rawContent);
-          if (!parsed)
-            throw new InternalServerError("Failed to parse front matter");
+          if (!parsed) throw new FindPostsError("Failed to parse front matter");
           const id = filePath.split("/").pop()?.split(".")[0] || "";
           return { id, metadata: parsed.metadata, content: parsed.content };
         })
       );
       return postsList;
     } catch (error) {
-      throw WrapInternalServerError(error as Error);
+      throw new FindPostsError(`Failed to fetch posts ${error}`);
     }
-  }, []);
+  }, [posts]);
 
   return { findPost, fetchPosts };
 };

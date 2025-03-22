@@ -25,8 +25,9 @@ const TechPosts = () => {
       setLoading(true);
       try {
         const response = await fetchPosts();
+
         setRawPosts(response ?? []);
-      } catch {
+      } catch (error) {
         setRawPosts([]);
       } finally {
         setLoading(false);
@@ -34,7 +35,7 @@ const TechPosts = () => {
     };
 
     fetchData();
-  }, [fetchPosts, setLoading]);
+  }, []);
 
   const posts: Post[] = useMemo(
     () =>

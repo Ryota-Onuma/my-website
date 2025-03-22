@@ -1,7 +1,7 @@
 import { Spinner } from "@chakra-ui/react";
 import { Box } from "@/app/components/ui/box";
 import { useColorMode, isLightMode } from "@/app/components/ui/theme";
-import { minBodyHeight } from "@/app/consts/style";
+import { minBodyHeight } from "@/app/consts";
 export const Loading = () => {
   const { colorMode } = useColorMode();
   return (
