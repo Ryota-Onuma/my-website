@@ -12,20 +12,38 @@ import {
   minBodyHeight,
 } from "../consts";
 
+import { Loading } from "@/app/components/ui/loading";
+import { useLoading } from "@/app/hooks/useLoading";
+import { useEffect } from "react";
+
 export const Layout = () => {
   const { colorMode } = useColorMode();
+  const { loading } = useLoading();
+
+  useEffect(() => {
+    console.log("Layout mounted");
+    return () => {
+      console.log("Layout unmounted");
+    };
+  }, []);
+
   return (
     <>
       <Theme appearance={colorMode}>
         <Header width={headerWidth} height={headerHeight} />
-        <Box
-          as="main"
-          boxSizing={"border-box"}
-          width={headerWidth}
-          minHeight={minBodyHeight}
-        >
-          <Outlet />
-        </Box>
+        {loading ? (
+          <Loading />
+        ) : (
+          <Box
+            as="main"
+            boxSizing={"border-box"}
+            width={headerWidth}
+            minHeight={minBodyHeight}
+          >
+            <Outlet />
+          </Box>
+        )}
+
         <Footer width={footerWidth} height={footerHeight} />
       </Theme>
     </>

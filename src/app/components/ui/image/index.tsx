@@ -6,6 +6,7 @@ type ImageProps = {
   width?: string | number;
   height?: string | number;
   objectFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
+  aspectRatio?: string;
 };
 
 export const MusicianDuck = ({ width, height }: ImageProps) => {
@@ -19,13 +20,14 @@ export const MusicianDuck = ({ width, height }: ImageProps) => {
   );
 };
 
-export const Image = ({ width, height, src, alt }: ImageProps) => {
+export const Image = ({ width, height, src, alt, aspectRatio }: ImageProps) => {
   return (
     <ChakraUIImage
       src={src ?? "/musician_duck.png"}
       alt={alt ?? "Musician Duck"}
       width={width}
       height={height}
+      aspectRatio={aspectRatio}
     />
   );
 };

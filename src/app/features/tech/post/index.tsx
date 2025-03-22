@@ -5,17 +5,19 @@ import { Box } from "@/app/components/ui/box";
 import { useEffect, useState, useRef, useMemo } from "react";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import useFindPosts, { Post } from "@/app/hooks/usePosts";
+import { useLoading } from "@/app/hooks/useLoading";
 import { Slugger } from "@/app/lib/slugger";
 
 const TechPost = () => {
   const { postId } = useParams();
   const { findPost } = useFindPosts();
   const [post, setPost] = useState<Post>();
-
+  const { setLoading } = useLoading();
   const { isDesktop } = useMediaQuery();
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
         if (!postId) {
           return;
         }
@@ -26,6 +28,8 @@ const TechPost = () => {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     })();
   }, [postId, findPost]);

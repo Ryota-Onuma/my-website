@@ -4,37 +4,39 @@ import { Post, Tag } from "./types";
 import { RightArea } from "./right-area";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import useFindPosts, { Post as RawPost } from "@/app/hooks/usePosts";
-import { useEffect, useMemo, useState, memo } from "react";
+import { useMemo, useState, memo, useEffect } from "react";
 import { useLocation } from "react-router";
+import { useLoading } from "@/app/hooks/useLoading";
 
 const LeftAreaMemo = memo<LeftAreaProps>(LeftArea);
 
 const TechPosts = () => {
   const { isDesktop } = useMediaQuery();
   const { fetchPosts } = useFindPosts();
+  const { setLoading } = useLoading();
   const [rawPosts, setRawPosts] = useState<RawPost[]>([]);
   const { search } = useLocation();
 
-  // URLSearchParams は search に依存して再生成
   const query = useMemo(() => new URLSearchParams(search), [search]);
   const queryTag = query.get("tag");
 
-  // 投稿データの取得
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const response = await fetchPosts();
-        if (response) {
-          setRawPosts(response);
-        }
+
+        setRawPosts(response ?? []);
       } catch (error) {
-        console.error(error);
+        setRawPosts([]);
+      } finally {
+        setLoading(false);
       }
     };
-    fetchData();
-  }, [fetchPosts]);
 
-  // 生データから投稿情報に変換
+    fetchData();
+  }, []);
+
   const posts: Post[] = useMemo(
     () =>
       rawPosts.map((post) => ({
@@ -48,7 +50,6 @@ const TechPosts = () => {
     [rawPosts]
   );
 
-  // 投稿内のタグからユニークなタグ一覧と各タグに紐づく投稿を生成
   const tags: Tag[] = useMemo(() => {
     const tagMap = new Map<string, Tag>();
     posts.forEach((post) => {
@@ -73,24 +74,25 @@ const TechPosts = () => {
 
   return (
     <Box display="flex" width="full" flexDirection="column" alignItems="center">
-      <Box
-        display="flex"
-        flexDirection="row"
-        width="full"
-        justifyContent={isDesktop ? "space-between" : "center"}
-      >
-        {isDesktop && <LeftAreaMemo style={{ width: "1/4" }} tags={tags} />}
-        <RightArea
-          queryTag={queryTag}
-          posts={filteredPosts}
-          style={{ width: isDesktop ? "3/4" : "11/12" }}
-        />
-      </Box>
+      {filteredPosts.length > 0 && (
+        <Box
+          display="flex"
+          flexDirection="row"
+          width="full"
+          justifyContent={isDesktop ? "space-between" : "center"}
+        >
+          {isDesktop && <LeftAreaMemo style={{ width: "25%" }} tags={tags} />}
+          <RightArea
+            queryTag={queryTag}
+            posts={filteredPosts}
+            style={{ width: isDesktop ? "75%" : "91.66%" }}
+          />
+        </Box>
+      )}
     </Box>
   );
 };
 
-// タグ文字列配列から Tag オブジェクトの配列に変換するユーティリティ
 const createTags = (tags: string[]): Tag[] =>
   tags.map((tag) => ({ name: tag, posts: [] }));
 
