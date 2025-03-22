@@ -1,7 +1,7 @@
 import { Box } from "@/app/components/ui/box";
 import { Text } from "@/app/components/ui/text";
 import { useColorMode, isLightMode } from "@/app/components/ui/theme";
-import { minBodyHeight } from "@/app/consts";
+import { minBodyHeight } from "@/app/consts/style";
 import { useSearchParams } from "react-router-dom";
 import { InternalLink } from "@/app/components/ui/link";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";

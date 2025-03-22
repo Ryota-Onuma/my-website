@@ -8,6 +8,7 @@ import useFindPosts, { Post as rawPost } from "@/app/hooks/usePosts";
 import { Post, Tag } from "./types";
 import { useLoading } from "@/app/hooks/useLoading";
 import { Slugger } from "@/app/lib/slugger";
+import { useError } from "@/app/hooks/useError";
 
 const TechPost = () => {
   const { postId } = useParams();
@@ -16,6 +17,7 @@ const TechPost = () => {
 
   const { setLoading } = useLoading();
   const { isDesktop } = useMediaQuery();
+  const { setError } = useError();
   useEffect(() => {
     (async () => {
       try {
@@ -29,12 +31,12 @@ const TechPost = () => {
           setRawPost(response);
         }
       } catch (error) {
-        console.error(error);
+        setError(error as Error);
       } finally {
         setLoading(false);
       }
     })();
-  }, [postId, findPost]);
+  }, [postId, findPost, setLoading, setError]);
 
   const post: Post | undefined = useMemo(() => {
     if (!rawPost) return undefined;
