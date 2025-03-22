@@ -4,10 +4,11 @@ import { Thumbnail } from "./components/thumbnail";
 import { Title } from "./components/title";
 import { Content } from "./components/content";
 import { Slugger } from "@/app/lib/slugger";
+import { Post } from "./types";
+import { useState, useEffect } from "react";
 
 type MainAreaProps = {
-  title: string;
-  markdownContent: string;
+  post: Post | undefined;
   scrollContainerRef: React.RefObject<HTMLDivElement>;
   style: {
     leftPadding: string;
@@ -16,29 +17,33 @@ type MainAreaProps = {
 };
 
 export const MainArea = ({
-  title,
-  markdownContent,
+  post,
   scrollContainerRef,
   style: { leftPadding, rightPadding },
 }: MainAreaProps) => {
   new Slugger().reset();
+
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width={"full"}
-      pl={leftPadding}
-      pr={rightPadding}
-      boxSizing={"border-box"}
-      height={minBodyHeight} // ←heightを明示
-      ref={scrollContainerRef}
-      as="div"
-      gap={12}
-      overflowY="auto"
-    >
-      <Thumbnail />
-      <Title content={title} />
-      <Content markdownContent={markdownContent} />
+    <Box>
+      {post && (
+        <Box
+          display="flex"
+          flexDirection="column"
+          width={"full"}
+          pl={leftPadding}
+          pr={rightPadding}
+          boxSizing={"border-box"}
+          height={minBodyHeight}
+          ref={scrollContainerRef}
+          as="div"
+          gap={12}
+          overflowY="auto"
+        >
+          <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
+          <Title content={post.title} />
+          <Content markdownContent={post.content} />
+        </Box>
+      )}
     </Box>
   );
 };

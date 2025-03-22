@@ -4,14 +4,16 @@ import { MainArea } from "./main-area";
 import { Box } from "@/app/components/ui/box";
 import { useEffect, useState, useRef, useMemo } from "react";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
-import useFindPosts, { Post } from "@/app/hooks/usePosts";
+import useFindPosts, { Post as rawPost } from "@/app/hooks/usePosts";
+import { Post, Tag } from "./types";
 import { useLoading } from "@/app/hooks/useLoading";
 import { Slugger } from "@/app/lib/slugger";
 
 const TechPost = () => {
   const { postId } = useParams();
   const { findPost } = useFindPosts();
-  const [post, setPost] = useState<Post>();
+  const [rawPost, setRawPost] = useState<rawPost>();
+
   const { setLoading } = useLoading();
   const { isDesktop } = useMediaQuery();
   useEffect(() => {
@@ -24,7 +26,7 @@ const TechPost = () => {
         const response = await findPost(postId);
 
         if (response) {
-          setPost(response);
+          setRawPost(response);
         }
       } catch (error) {
         console.error(error);
@@ -33,6 +35,18 @@ const TechPost = () => {
       }
     })();
   }, [postId, findPost]);
+
+  const post: Post | undefined = useMemo(() => {
+    if (!rawPost) return undefined;
+    return {
+      id: rawPost.id,
+      title: rawPost.metadata.title ?? "タイトルなし",
+      description: rawPost.metadata.description ?? "",
+      thumbnail: rawPost.metadata.thumbnail,
+      tags: createTags(rawPost.metadata.tags ?? []),
+      content: rawPost.content,
+    };
+  }, [rawPost]);
 
   const toc = useMemo(() => {
     if (!post?.content) return [];
@@ -48,8 +62,7 @@ const TechPost = () => {
   return (
     <Box display="flex" width="full" justifyContent="center">
       <MainArea
-        title={post?.metadata.title ?? "無題"}
-        markdownContent={post?.content ?? ""}
+        post={post}
         scrollContainerRef={scrollContainerRef}
         style={{
           leftPadding: isDesktop ? "20%" : "5%",
@@ -66,4 +79,8 @@ const TechPost = () => {
     </Box>
   );
 };
+
+const createTags = (tags: string[]): Tag[] =>
+  tags.map((tag) => ({ name: tag, posts: [] }));
+
 export default TechPost;
