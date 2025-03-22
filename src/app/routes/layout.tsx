@@ -13,8 +13,8 @@ import {
   minBodyHeight,
 } from "../consts/style";
 
-import { Loading } from "@/app/components/ui/loading";
-import { useLoading } from "@/app/hooks/useLoading";
+// import { Loading } from "@/app/components/ui/loading";
+// import { useLoading } from "@/app/hooks/useLoading";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -42,6 +42,11 @@ export const Base = ({ children }: LayoutProps) => {
 };
 
 export const Layout = () => {
-  const { loading } = useLoading();
-  return <Base>{loading ? <Loading /> : <Outlet />}</Base>;
+  // const { loading } = useLoading();
+  // return <Base>{loading ? <Loading /> : <Outlet />}</Base>;
+  return (
+    <Base>
+      <Outlet />
+    </Base>
+  );
 };
