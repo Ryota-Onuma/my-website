@@ -5,7 +5,6 @@ import { Title } from "./components/title";
 import { Content } from "./components/content";
 import { Slugger } from "@/app/lib/slugger";
 import { Post } from "./types";
-import { useState, useEffect } from "react";
 
 type MainAreaProps = {
   post: Post | undefined;

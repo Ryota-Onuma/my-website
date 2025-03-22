@@ -3,7 +3,7 @@ import { Box as ChakraUIBox } from "@chakra-ui/react";
 import { ElementType } from "react";
 
 type BoxProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   element?: ElementType;
 } & React.ComponentProps<typeof ChakraUIBox>;
 
