@@ -8,13 +8,19 @@ import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import { useColorMode, isLightMode } from "@/app/components/ui/theme";
 
 const Navigations = () => {
+  const { isDesktop } = useMediaQuery();
   const links = [
     { displayName: "Home", href: "/" },
     { displayName: "Blog", href: "/tech/posts/" },
   ];
 
   return (
-    <Box display="flex" flexDirection="column" gap="16px" p="16px">
+    <Box
+      display="flex"
+      flexDirection={isDesktop ? "row" : "column"}
+      gap="32px"
+      p="32px"
+    >
       {links.map((link) => (
         <InternalLink key={link.href} href={link.href}>
           {link.displayName}
