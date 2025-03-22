@@ -14,12 +14,12 @@ export const Thumbnail = ({ imageURL, alt }: ThumbnailProps) => {
     setMounted(true);
   }, []);
   return (
-    <Box position="relative" width="100%">
+    <Box width="100%">
       {mounted && (
         <Image
           src={imageURL ?? "/musician_duck.png"}
           alt={alt}
-          width="100%"
+          width="full"
           height="auto"
           objectFit="cover"
           aspectRatio="16/9"

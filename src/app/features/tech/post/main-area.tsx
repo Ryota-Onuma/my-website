@@ -23,34 +23,27 @@ export const MainArea = ({
 }: MainAreaProps) => {
   new Slugger().reset();
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   return (
-    <Box>
-      <Box
-        display="flex"
-        flexDirection="column"
-        width={"full"}
-        pl={leftPadding}
-        pr={rightPadding}
-        boxSizing={"border-box"}
-        height={minBodyHeight}
-        ref={scrollContainerRef}
-        as="div"
-        gap={12}
-        overflowY="auto"
-      >
-        {post && mounted && (
-          <>
-            <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
-            <Title content={post.title} />
-            <Content markdownContent={post.content} />
-          </>
-        )}
-      </Box>
+    <Box
+      display="flex"
+      flexDirection="column"
+      width={"full"}
+      pl={leftPadding}
+      pr={rightPadding}
+      boxSizing={"border-box"}
+      height={minBodyHeight}
+      ref={scrollContainerRef}
+      as="div"
+      gap={12}
+      overflowY="auto"
+    >
+      {post && (
+        <>
+          <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
+          <Title content={post.title} />
+          <Content markdownContent={post.content} />
+        </>
+      )}
     </Box>
   );
 };
