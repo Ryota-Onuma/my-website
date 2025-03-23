@@ -6,6 +6,7 @@ import { Tags } from "./components/tags";
 import { Content } from "./components/content";
 import { Slugger } from "@/app/lib/slugger";
 import { Post } from "./types";
+import { Clock } from "@/app/components/ui/clock";
 
 type MainAreaProps = {
   post: Post | undefined;
@@ -42,7 +43,10 @@ export const MainArea = ({
           <Box display="flex" flexDirection="column" gap={3}>
             <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
             <Title content={post.title} />
-            <Box>{post.date}</Box>
+            <Box display="flex" flexDirection="row" gap={1} alignItems="center">
+              <Clock />
+              {post.date}
+            </Box>
             <Tags contents={post.tags} />
           </Box>
           <Content markdownContent={post.content} />

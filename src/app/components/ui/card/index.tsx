@@ -5,7 +5,9 @@ import {
   Image,
   AspectRatio,
 } from "@chakra-ui/react";
-import { LuClock3 } from "react-icons/lu";
+
+import { Clock } from "@/app/components/ui/clock";
+
 import { InternalLink } from "@/app/components/ui/link";
 import { Text } from "@/app/components/ui/text";
 
@@ -46,7 +48,7 @@ export const Card = ({
         </ChakraUICard.Title>
         <Box display="flex" flexDirection="column" gap="2">
           <Box display="flex" alignItems="center" gap="2">
-            <LuClock3 />
+            <Clock />
             <Text>{date}</Text>
           </Box>
           <Text fontSize="md" fontWeight="medium">
