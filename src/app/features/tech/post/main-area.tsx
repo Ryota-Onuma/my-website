@@ -34,15 +34,17 @@ export const MainArea = ({
       height={minBodyHeight}
       ref={scrollContainerRef}
       as="div"
-      gap={6}
+      gap={12}
       overflowY="auto"
     >
       {post && (
         <>
-          <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
-          <Title content={post.title} />
-          <Box>{post.date}</Box>
-          <Tags contents={post.tags} />
+          <Box display="flex" flexDirection="column" gap={3}>
+            <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
+            <Title content={post.title} />
+            <Box>{post.date}</Box>
+            <Tags contents={post.tags} />
+          </Box>
           <Content markdownContent={post.content} />
         </>
       )}

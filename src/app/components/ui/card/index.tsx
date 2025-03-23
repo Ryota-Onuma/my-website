@@ -5,6 +5,7 @@ import {
   Image,
   AspectRatio,
 } from "@chakra-ui/react";
+import { LuClock3 } from "react-icons/lu";
 import { InternalLink } from "@/app/components/ui/link";
 import { Text } from "@/app/components/ui/text";
 
@@ -14,6 +15,7 @@ type CardProps = {
     alt: string;
   };
   title: string;
+  date: string;
   description: string;
   link: string;
   tags: string[];
@@ -25,6 +27,7 @@ type CardProps = {
 export const Card = ({
   image,
   title,
+  date,
   description,
   link,
   tags,
@@ -37,9 +40,19 @@ export const Card = ({
       </AspectRatio>
       <ChakraUICard.Body gap="2">
         <ChakraUICard.Title>
-          <Text>{title}</Text>
+          <Text as={"h1"} fontWeight="bold" fontSize={"2xl"}>
+            {title}
+          </Text>
         </ChakraUICard.Title>
-        <ChakraUICard.Description>{description}</ChakraUICard.Description>
+        <Box display="flex" flexDirection="column" gap="2">
+          <Box display="flex" alignItems="center" gap="2">
+            <LuClock3 />
+            <Text>{date}</Text>
+          </Box>
+          <Text fontSize="md" fontWeight="medium">
+            {description}
+          </Text>
+        </Box>
       </ChakraUICard.Body>
       <ChakraUICard.Footer gap="2" width={"full"}>
         <Box
@@ -49,7 +62,7 @@ export const Card = ({
           width={"full"}
           gap={2}
         >
-          <Box display={"flex"} flexDirection={"row"} flexWrap={"wrap"} gap={1}>
+          <Box display={"flex"} flexDirection={"row"} flexWrap={"wrap"} gap={2}>
             {tags.map((tag) => (
               <Text key={tag} fontSize="sm" fontWeight="medium">
                 #{tag}

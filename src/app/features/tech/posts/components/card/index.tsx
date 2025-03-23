@@ -10,6 +10,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
   return (
     <Card
       title={post.title}
+      date={post.date}
       description={post.description}
       link={`/tech/posts/${post.id}`}
       image={{

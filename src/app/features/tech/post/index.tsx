@@ -5,7 +5,7 @@ import { Box } from "@/app/components/ui/box";
 import { useEffect, useState, useRef, useMemo } from "react";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import useFindPosts, { Post as rawPost } from "@/app/hooks/usePosts";
-import { Post, Tag } from "./types";
+import { Post } from "./types";
 import { useLoading } from "@/app/hooks/useLoading";
 import { Slugger } from "@/app/lib/slugger";
 import { useError } from "@/app/hooks/useError";
@@ -82,8 +82,5 @@ const TechPost = () => {
     </Box>
   );
 };
-
-const createTags = (tags: string[]): Tag[] =>
-  tags.map((tag) => ({ name: tag, posts: [] }));
 
 export default TechPost;
