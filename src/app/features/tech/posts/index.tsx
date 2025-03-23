@@ -41,6 +41,7 @@ const TechPosts = () => {
       rawPosts.map((post) => ({
         id: post.id,
         title: post.metadata.title ?? "無題",
+        date: post.metadata.date ?? "投稿日不明",
         description: post.metadata.description ?? "",
         thumbnail: post.metadata.thumbnail,
         tags: createTags(post.metadata.tags ?? []),

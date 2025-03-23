@@ -14,10 +14,10 @@ const TechPost = () => {
   const { postId } = useParams();
   const { findPost } = useFindPosts();
   const [rawPost, setRawPost] = useState<rawPost>();
-
   const { setLoading } = useLoading();
   const { isDesktop } = useMediaQuery();
   const { setError } = useError();
+
   useEffect(() => {
     (async () => {
       try {
@@ -43,9 +43,10 @@ const TechPost = () => {
     return {
       id: rawPost.id,
       title: rawPost.metadata.title ?? "タイトルなし",
+      date: rawPost.metadata.date ?? "投稿日不明",
       description: rawPost.metadata.description ?? "",
       thumbnail: rawPost.metadata.thumbnail,
-      tags: createTags(rawPost.metadata.tags ?? []),
+      tags: rawPost.metadata.tags ?? [],
       content: rawPost.content,
     };
   }, [rawPost]);

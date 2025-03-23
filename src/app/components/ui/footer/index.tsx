@@ -12,8 +12,11 @@ export const Footer = ({ width, height }: FooterProps) => {
       width={width}
       height={height}
       boxSizing={"border-box"}
-      p={4}
+      pb={2}
       textAlign="center"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
     >
       Copyright © 2025 Ryota Onuma
     </Box>

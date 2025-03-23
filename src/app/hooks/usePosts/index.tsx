@@ -40,14 +40,9 @@ const useFindPosts = () => {
       const parsed = parseMarkdown(rawContent);
       if (!parsed)
         throw new InternalServerError("Failed to parse front matter");
-      const metadata = {
-        title: parsed.metadata.title ?? "無題",
-        description: parsed.metadata.description ?? "",
-        thumbnail: parsed.metadata.thumbnail,
-        tags: parsed.metadata.tags ?? [],
-      };
+
       const id = filePath.split("/").pop()?.split(".")[0] || "";
-      return { id, metadata, content: parsed.content };
+      return { id, metadata: parsed.metadata, content: parsed.content };
     } catch (error) {
       throw WrapInternalServerError(error as Error);
     }

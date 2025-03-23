@@ -2,6 +2,7 @@ import { Box } from "@/app/components/ui/box";
 import { minBodyHeight } from "@/app/consts/style";
 import { Thumbnail } from "./components/thumbnail";
 import { Title } from "./components/title";
+import { Tags } from "./components/tags";
 import { Content } from "./components/content";
 import { Slugger } from "@/app/lib/slugger";
 import { Post } from "./types";
@@ -33,13 +34,15 @@ export const MainArea = ({
       height={minBodyHeight}
       ref={scrollContainerRef}
       as="div"
-      gap={12}
+      gap={6}
       overflowY="auto"
     >
       {post && (
         <>
           <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
           <Title content={post.title} />
+          <Box>{post.date}</Box>
+          <Tags contents={post.tags} />
           <Content markdownContent={post.content} />
         </>
       )}
