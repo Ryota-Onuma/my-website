@@ -7,159 +7,112 @@ tags:
   - English
 ---
 
-## 1. make + noun1. make + noun
+# grammers
 
--	make my bed (to tidy or arrange your bed)
--	make dinner (to prepare dinner)
+## 1. Units for uncountable nouns
 
+- a sack of flour / a box of flour / a slice of something
+- Examples:
+- “I bought a sack of flour at the store.”
+- “Could I have a slice of bread?”
 
-## 2. Units for uncountable nouns
+## 2. looks like (noun/pronoun) vs. looks (adjective)
 
--	a sack of flour
--	a box of flour
--	a slice of something (cut from a loaf of something)
+- “He looks like a famous singer.” vs. “He looks tired.”
 
-Examples:
--	“I bought a sack of flour at the store.”
--	“Could I have a slice of bread?”
+## 3. Possessive forms
 
+1.  Possessive noun (e.g., “Tom’s book”)
+2.  Possessive adjective (my/your/his/her/their book)
+3.  Possessive pronoun (mine/yours/his/hers/theirs)
 
-## 3. blockbuster
--	Refers to something extremely popular and successful, often used for movies or books.
+## 4. Second Conditional vs. Third Conditional
 
-Example:
--	“That movie was a real blockbuster.”
+- Second Conditional (present/future unreal):
+- “If I had more time, I would travel abroad.”
+- Third Conditional (past hypothetical):
+- “If I had known about the event, I would have gone.”
 
+## 5. distinguish A from B / distinguish between A, B, and C
 
+- “I can distinguish facts from opinions.”
+- “We don’t distinguish between a paper clip, a binder clip, and a bulldog clip.”
 
-## 4. lines
--	The words an actor speaks in a movie or play.
+## 6. prefer A (noun/verb-ing) to B
 
-Example:
--	“He has a lot of lines to memorize for this role.”
+- “I prefer buying coffee at a café to buying it at a convenience store.”
+- “I prefer coffee to tea.”
 
+## 7. see someone + verb- ing vs. see someone + verb (base form)
 
+- see someone + verb- ing: partial or in- progress action
+- “I saw him driving a taxi.”
+- see someone + verb (base form): the entire action from start to finish
+- “I saw him play the piano.”
 
-## 5. run in the (someone’s) blood
--	Indicates a trait or talent that is inherited or passed down through family.
+⸻
 
-Example:
--	“Music runs in his blood.”
+# words/phrases
 
+## 1. make + noun
 
+- make my bed (to tidy or arrange your bed)
+- make dinner (to prepare dinner)
 
-## 6. get along with
--	To have a good relationship with someone.
+## 2. blockbuster
 
-Example:
--	“I get along with all my classmates.”
+- Something extremely popular and successful (often a movie or book).
+- “That movie was a real blockbuster.”
 
+## 3. lines
 
+- The words an actor speaks in a movie or play.
+- “He has a lot of lines to memorize for this role.”
 
-## 7. resemble X in Y
--	To look like someone (X) in a specific aspect (Y).
+## 4. run in the (someone’s) blood
 
-Example:
--	“She resembles her father in personality.”
+- A trait/talent that is inherited.
+- “Music runs in his blood.”
 
+## 5. get along with
 
+- To have a good relationship with.
+- “I get along with all my classmates.”
 
-## 8. mother-in-law
--	The mother of your husband or wife.
+## 6. resemble X in Y
 
+- To look like someone (X) in a specific aspect (Y).
+- “She resembles her father in personality.”
 
+## 7. mother- in- law
 
+- The mother of your spouse.
 
-## 9. relatives
+## 8. relatives
 
--	People related to you by blood or marriage.
+- People related to you by blood or marriage.
 
+## 9. vertical / horizontal (adjectives)
 
+- vertically / horizontally (adverbs)
+- “The lines should be drawn vertically.”
+- “Please place the sheet horizontally.”
 
-## 10. vertical / horizontal (adjectives)
+## 10. ran out of A
 
-vertically / horizontally (adverbs)
+- Completely used up or finished.
+- “My laptop ran out of battery.”
 
-Examples:
--	“The lines should be drawn vertically.”
--	“Please place the sheet horizontally.”
+## 11. owe
 
+- To have a debt or obligation to someone.
+- “I owe my friend 10 dollars.”
 
+## 12. the amount of money
 
-## 11. looks like (noun/pronoun) vs. looks (adjective)
+- The total sum of money.
+- “He was shocked by the amount of money she earned.”
 
--	looks like (noun/pronoun): “He looks like a famous singer.”
--	looks (adjective): “He looks tired.”
+## 13. The person I’m talking to / conversation partner / talking partner
 
-
-
-## 12. Possessive forms
-
-1.	Possessive noun (e.g., “Tom’s book”)
-2.	Possessive adjective (my/your/his/her/their book)
-3.	Possessive pronoun (mine/yours/his/hers/theirs)
-
-
-
-## 13. Second Conditional vs. Third Conditional
-
-### Second Conditional: Talks about present or future unreal situations.
-
-Example: “If I had more time, I would travel abroad.”
-
-### Third Conditional: Talks about hypothetical situations in the past.
-
-Example: “If I had known about the event, I would have gone.”
-
-
-
-## 14. distinguish A from B / distinguish between A, B, and C
-
--	“I can distinguish facts from opinions.”
--	“We don’t distinguish between a paper clip, a binder clip, and a bulldog clip.”
-
-
-
-## 15. ran out of A
-
--	Means something is completely used up or finished.
-
-Example: “My laptop ran out of battery.”
-
-
-## 16. owe
-
--	To have a debt or obligation to someone.
-
-Example:
--	“I owe my friend 10 dollars.”
-
-
-## 17. prefer A (noun/verb-ing) to B
-
--	Indicates you like A more than B.
-
-Examples:
--	“I prefer buying coffee at a café to buying it at a convenience store.”
--	“I prefer coffee to tea.”
-
-
-## 18. see someone + verb-ing vs. see someone + verb (base form)
-
--	see someone + verb-ing: You saw part of the action.
--	“I saw him driving a taxi.” (You caught him in the middle of doing it.)
--	see someone + verb (base form): You saw the entire action from start to finish.
--	“I saw him play the piano.” (You watched the whole performance.)
-
-
-## 19. the amount of money
-
--	Refers to the total sum of money.
-
-Examples:
--	“The amount of money we have left is small.”
--	“He was shocked by the amount of money she earned.”
-
-
-## 20. The person I’m talking to / conversation partner / talking partner
--	Different ways to refer to the person you’re speaking with in a conversation.
+- Ways to refer to the person you’re speaking with in a conversation.
