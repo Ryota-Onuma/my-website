@@ -39,7 +39,7 @@ export const MainArea = ({
       overflowY="auto"
     >
       {post && (
-        <>
+        <Box width={"11/12"}>
           <Box display="flex" flexDirection="column" gap={3}>
             <Thumbnail imageURL={post.thumbnail} alt="thumbnail" />
             <Title content={post.title} />
@@ -50,7 +50,7 @@ export const MainArea = ({
             <Tags contents={post.tags} />
           </Box>
           <Content markdownContent={post.content} />
-        </>
+        </Box>
       )}
     </Box>
   );

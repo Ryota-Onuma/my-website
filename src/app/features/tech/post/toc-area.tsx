@@ -1,5 +1,5 @@
 import { Box } from "@/app/components/ui/box";
-import { minBodyHeight } from "@/app/consts/style";
+import { minBodyHeight, headerHeight } from "@/app/consts/style";
 import React from "react";
 import { Toc, TocItem } from "./components/toc";
 
@@ -25,9 +25,9 @@ export const TocArea = ({
     >
       <Box
         position={"fixed"}
-        right={0}
-        top={"80px"}
-        p={4}
+        right={10}
+        top={headerHeight}
+        py={4}
         width={width}
         maxHeight={minBodyHeight}
         overflowY={"auto"}

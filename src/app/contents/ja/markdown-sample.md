@@ -1,11 +1,16 @@
 ---
-title: マークダウン記法サンプル2
+title: マークダウン記法サンプル1
 date: 2025/3/15
 thumbnail: https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80
 description: "このブログで使えるマークダウン記法の動作確認"
 tags:
   - hoge
-  - piyo
+  - fuga
+  - fff
+  - bbb
+  - ccc
+  - ddd
+  - バイセルテックブログ
 ---
 
 # h1
@@ -20,7 +25,7 @@ tags:
 
 ###### h6
 
-![画像](https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)
+![画像](/contents/ja/markdown-sample/musician_duck.png)
 
 テキストテキストテキストテキスト
 
@@ -126,4 +131,22 @@ export const Content = ({ markdownContent }: ContentProps) => {
 };
 ```
 
-`console.log("Hello World")`
+# 見出しのテスト
+
+`console.log("Hello World")`あいうえお
+
+- hoge
+
+  - fuga
+  - fuga
+
+1. abc
+
+   a. hoge
+   
+   b. fuga
+
+2. def
+
+- [x] abc
+- [ ] def

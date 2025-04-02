@@ -15,7 +15,7 @@ export type Post = {
 type GlobModule = () => Promise<string>;
 type GlobModules = Record<string, GlobModule>;
 
-const allPosts = import.meta.glob("@/app/contents/ja/*.md", {
+const allPosts = import.meta.glob("@/app/contents/**/*.md", {
   query: "?url",
   import: "default",
 }) as GlobModules;

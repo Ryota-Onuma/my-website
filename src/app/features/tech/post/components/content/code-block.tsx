@@ -53,6 +53,7 @@ export const Pre = ({
 }: ClassAttributes<HTMLPreElement> &
   HTMLAttributes<HTMLPreElement> &
   ExtraProps) => {
+    console.log(children)
   if (!children || typeof children !== "object") {
     return <Code {...props}>{children}</Code>;
   }
