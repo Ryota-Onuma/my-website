@@ -116,3 +116,39 @@ tags:
 ## 13. The person I’m talking to / conversation partner / talking partner
 
 - Ways to refer to the person you’re speaking with in a conversation.
+
+## 14. Full-time employees are protected by law.
+
+## 15. fear of verb-ing
+
+- Afraiding of something scared.
+
+## 16. If we suppose that
+
+## 17. stay away from
+
+- to avoid something that will have a bad effect on you:
+- I drink a lot of water and I stay away from greasy, heavy foods.
+
+## 18. symptoms
+
+- any feeling of illness or physical or mental change that is caused by a particular disease.
+- something that indicates the existence of something else
+
+## 19. acupuncture
+
+![./acupuncture](/contents/en/qq-english/acupuncture.png)
+
+## 20. keeping fit
+
+- to stay healthy and strong, especially as a result of exercise
+
+## 21. haggle
+
+![./haggle](/contents/en/qq-english/haggle.png)
+
+- to nagotiate for lowering the price of a product
+
+## 22. niece / nephew
+
+![./niece-nephew](/contents/en/qq-english/niece-nephew.png)
