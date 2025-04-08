@@ -13,8 +13,8 @@ tags:
 
 - a sack of flour / a box of flour / a slice of something
 - Examples:
-- “I bought a sack of flour at the store.”
-- “Could I have a slice of bread?”
+  - “I bought a sack of flour at the store.”
+  - “Could I have a slice of bread?”
 
 ## 2. looks like (noun/pronoun) vs. looks (adjective)
 
@@ -50,6 +50,35 @@ tags:
 - see someone + verb (base form): the entire action from start to finish
 - “I saw him play the piano.”
 
+## 8. gerund vs. present participle
+
+- Both of gerund and present participle are verb-ing.
+- gerund
+  - noun
+- present participle
+  - the form of a verb, ending in -ing which is used in forming continuous tenses
+
+## 9. About articles
+
+- a / an (infinitive article)
+  - used for
+    - 1st mention
+    - jobs
+- the (defenitive article)
+  - used for
+    - 2nd article
+    - only thing (ex: The Sun)
+    - common places (ex: She drops me off at the air port)
+    - instruments
+    - superatives
+- zero article
+  - general meanings (ex: I like children.)
+  - meals (ex: I have dinner)
+  - specific years (ex: I graduated from my university in 2021)
+  - games, sports (ex: I like baseball)
+  - Languages, School Subjects (ex: I don't study English)
+  - Hidden meanings (ex: I go to school every day (= I study every day). I go to the school every day (= going to the shool physically))
+
 ⸻
 
 # words/phrases
@@ -84,7 +113,7 @@ tags:
 - To look like someone (X) in a specific aspect (Y).
 - “She resembles her father in personality.”
 
-## 7. mother- in- law
+## 7. mother-in-law
 
 - The mother of your spouse.
 
@@ -152,3 +181,68 @@ tags:
 ## 22. niece / nephew
 
 ![./niece-nephew](/contents/en/qq-english/niece-nephew.png)
+
+## 23. the same as
+
+- He is wearing the same jacket that he wore last summer.
+
+## 24. couch potato
+
+- a person who watches a lot of televisions, and doesn't have an active life.
+
+## 25. sitcom
+
+- situation comedy
+
+## 26. soup opera
+
+- A television or radio drama series that is broadcast regularly (often daily or weekly),
+
+## 27. in terms of
+
+We use when we want
+
+1. To talk about a specific aspect
+
+- In terms of cost, this product is cheaper.
+  → We're talking about cost, not other things like design or size.
+
+2. To focus on one part of something
+
+- In terms of performance, this car is fast.
+  → We are focusing only on the performance.
+
+3. To compare or measure
+
+- He is successful in terms of money, but not in life.
+  → He has money, but maybe not happiness.
+
+## 28. You must specify [something] from [a list].
+
+- You have to clearly choose or state one option from a group of given choices."
+
+## 29. Understanding 'be used to gerund' 'get used to', 'adjust to', and 'adapt to'
+
+### be used to gerund
+
+You are already familiar with something. It’s normal for you now.
+
+- ex: I’m used to using this software.
+
+### getting used to gerund
+
+You are becoming familiar with something. It’s not normal yet, but it’s starting to feel normal.
+
+- ex: I’m getting used to waking up early.
+
+### adjust to
+
+To make **small** changes in yourself or your behavior to fit a new situation.
+
+- ex: I had to adjust to the new manager’s style.
+
+### adapt to
+
+To change yourself more deeply to fit a big or different situation.
+
+- ex: She adapted to life in a new country.
