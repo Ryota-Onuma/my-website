@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Card as ChakraUICard,
   Image,
   AspectRatio,
@@ -10,6 +9,7 @@ import { Clock } from "@/app/components/ui/clock";
 
 import { InternalLink } from "@/app/components/ui/link";
 import { Text } from "@/app/components/ui/text";
+import { Button } from "@/app/components/ui/button
 
 type CardProps = {
   image: {
@@ -73,7 +73,7 @@ export const Card = ({
           </Box>
           <Box>
             <InternalLink href={link}>
-              <Button>Read more</Button>
+              <Button areaLabel={`Read More ${link}`}>Read more</Button>
             </InternalLink>
           </Box>
         </Box>
