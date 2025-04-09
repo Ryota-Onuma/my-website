@@ -50,6 +50,7 @@ const Hamburger = ({ isOpen, onClick }: HamburgerProps) => {
       border="none"
       css={{ cursor: "pointer" }}
       p="0"
+      aria-label="Hamburger Menu"
     >
       {/* 1本目 */}
       <Box
