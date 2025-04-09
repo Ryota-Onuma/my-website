@@ -72,12 +72,17 @@ tags:
     - instruments
     - superatives
 - zero article
+
   - general meanings (ex: I like children.)
   - meals (ex: I have dinner)
   - specific years (ex: I graduated from my university in 2021)
   - games, sports (ex: I like baseball)
   - Languages, School Subjects (ex: I don't study English)
   - Hidden meanings (ex: I go to school every day (= I study every day). I go to the school every day (= going to the shool physically))
+
+  ## 10. the position of adverb of frequency
+
+  - It comes before a nomal verb or comes before an adjective
 
 ⸻
 
@@ -246,3 +251,5 @@ To make **small** changes in yourself or your behavior to fit a new situation.
 To change yourself more deeply to fit a big or different situation.
 
 - ex: She adapted to life in a new country.
+
+##
