@@ -79,7 +79,7 @@ export const Content = ({ markdownContent }: ContentProps) => {
           ol: Ol,
           li: Li,
           pre: Pre,
-          input: ({ node, ...props }) => {
+          input: ({ ...props }) => {
             if (props.type === "checkbox") {
               return <Checkbox {...props} />;
             }
