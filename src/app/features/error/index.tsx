@@ -47,7 +47,7 @@ export const ErrorNotFound = ({
             borderRadius: "5px",
           }}
         >
-          <Button>ホームに戻る</Button>
+          <Button areaLabel="ホームに戻る">ホームに戻る</Button>
         </InternalLink>
       </Box>
     </>

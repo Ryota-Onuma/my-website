@@ -31,6 +31,7 @@ export const MainArea = ({
       width={"full"}
       pl={leftPadding}
       pr={rightPadding}
+      pb={12}
       boxSizing={"border-box"}
       height={minBodyHeight}
       ref={scrollContainerRef}
