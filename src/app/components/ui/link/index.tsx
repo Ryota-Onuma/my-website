@@ -24,6 +24,7 @@ export const InternalLink = ({
         ...(hoverStyle as React.CSSProperties),
         ...style,
       }}
+      aria-label={`${href}へ移動`}
     >
       {children}
     </RouterLink>
@@ -47,6 +48,7 @@ export const ExternalLink = ({
       _hover={{
         ...(hoverStyle as Nested<SystemStyleObject>),
       }}
+      aria-label={`${href}へ移動`}
     >
       {children}
     </ChakraUILink>
