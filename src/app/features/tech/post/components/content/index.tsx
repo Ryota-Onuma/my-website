@@ -61,6 +61,60 @@ const Checkbox = ({ checked, ...props }: ComponentProps<"input">) => {
   );
 };
 
+const Table = ({ children }: ComponentProps<"table">) => {
+  return (
+    <table
+      style={{
+        borderCollapse: "collapse",
+        width: "100%",
+        marginBottom: "1em",
+      }}
+    >
+      {children}
+    </table>
+  );
+};
+
+const TableHead = ({ children }: ComponentProps<"thead">) => {
+  return <thead style={{ backgroundColor: "#f0f0f0" }}>{children}</thead>;
+};
+
+const TableBody = ({ children }: ComponentProps<"tbody">) => {
+  return <tbody>{children}</tbody>;
+};
+
+const TableRow = ({ children }: ComponentProps<"tr">) => {
+  return <tr>{children}</tr>;
+};
+
+const TableHeadCell = ({ children }: ComponentProps<"th">) => {
+  return (
+    <th
+      style={{
+        border: "1px solid #ccc",
+        padding: "0.5em",
+        textAlign: "left",
+        fontWeight: "bold",
+      }}
+    >
+      {children}
+    </th>
+  );
+};
+
+const TableCell = ({ children }: ComponentProps<"td">) => {
+  return (
+    <td
+      style={{
+        border: "1px solid #ccc",
+        padding: "0.5em",
+      }}
+    >
+      {children}
+    </td>
+  );
+};
+
 export const Content = ({ markdownContent }: ContentProps) => {
   return (
     <Box>
@@ -85,6 +139,12 @@ export const Content = ({ markdownContent }: ContentProps) => {
             }
             return <input {...props} />;
           },
+          table: Table,
+          thead: TableHead,
+          tbody: TableBody,
+          tr: TableRow,
+          th: TableHeadCell,
+          td: TableCell,
         }}
       >
         {markdownContent}

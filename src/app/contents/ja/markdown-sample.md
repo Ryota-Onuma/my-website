@@ -4,7 +4,7 @@ date: 2025/3/15
 thumbnail: /contents/ja/markdown-sample/thumbnail.png
 description: "このブログで使えるマークダウン記法の動作確認"
 tags:
-  - tutorial
+  - Tutorial
 ---
 
 # h1
