@@ -6,7 +6,7 @@ import { Slugger } from "@/app/lib/slugger";
 export const Heading1 = ({ children, ...props }: ComponentProps<"h1">) => {
   const id = new Slugger().getSlug(String(children));
   return (
-    <Text id={id} fontSize="3xl" fontWeight="bold" {...props} my={4} as={"h1"}>
+    <Text id={id} fontSize="3xl" fontWeight="bold" {...props} my={10} as={"h1"}>
       {children}
     </Text>
   );
@@ -15,7 +15,7 @@ export const Heading1 = ({ children, ...props }: ComponentProps<"h1">) => {
 export const Heading2 = ({ children, ...props }: ComponentProps<"h2">) => {
   const id = new Slugger().getSlug(String(children));
   return (
-    <Text id={id} fontSize="2xl" fontWeight="bold" {...props} my={4} as={"h2"}>
+    <Text id={id} fontSize="2xl" fontWeight="bold" {...props} my={6} as={"h2"}>
       {children}
     </Text>
   );

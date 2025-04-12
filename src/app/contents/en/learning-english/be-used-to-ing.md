@@ -1,7 +1,7 @@
 ---
 title: Difference: be used to, get used to, adjust to, adapt to
 date: 2025/4/10
-thumbnail: /contents/en/learning-english/thumbnail.png
+thumbnail: /contents/en/learning-english/be-used-to-ing/thumbnail.png
 description: ""
 tags:
   - English
@@ -11,7 +11,7 @@ tags:
 
 Many learners mix up **be used to (gerund / noun)**, **get used to (gerund / noun)**, **adjust to (gerund / noun)**, and **adapt to (gerund / noun)**.  
 They look similar, but the _feeling_ is different.  
-In this post we break them down in very simple English and Japanese.  
+In this post I break them down in very simple English and Japanese.  
 You will also see short stories you can memorize for speaking practice.
 
 ---
@@ -31,6 +31,7 @@ You will also see short stories you can memorize for speaking practice.
 4. My dog **is used to** the new apartment.
 5. I’m **used to** cooking dinner every day.
 6. Are you **used to** big city life?
+7. I'm too used to the Japanese toilet style.
 
 **Tip:** Here **used to** is an _adjective_. After it, use a **noun** or **‑ing**, _not_ a verb base form.
 
@@ -46,7 +47,7 @@ You will also see short stories you can memorize for speaking practice.
 1. **I am getting used to driving on the left.**
 2. You will **get used to** the new software soon.
 3. He **got used to** speaking English every day.
-4. We **are getting used to** remote work.
+4. We **are gradually getting used to** remote work.
 5. We’re slowly **getting used to** waking up early for the new job.
 6. I can’t **get used to** this new phone’s interface.
 
@@ -57,7 +58,7 @@ You will also see short stories you can memorize for speaking practice.
 ## adjust to + noun / ‑ing
 
 > **Meaning**: Change your behaviour a little to fit a new situation.  
-> **日本語**：状況に合わせて調整する。
+> **日本語**：状況に合わせて調整する。(adapt to より小さいことへの対応)
 
 ### More Examples
 
