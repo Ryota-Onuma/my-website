@@ -2,16 +2,12 @@
 sidebar_position: 1
 ---
 
-# aaa
+# My Template to Fill In **Before** Touching a Task
 
-## My Template to Fill In **Before** Touching a Task
-
-[Findyの爆速開発を支えるタスク分解](https://tech.findy.co.jp/entry/2025/01/07/090000)という記事で紹介されているテンプレートがとても良かった。せっかくなので、それをアレンジして自分向けのテンプレートを考えてみる。
+## Introduction
 
 The article “[Findyの爆速開発を支えるタスク分解](https://tech.findy.co.jp/entry/2025/01/07/090000)” lays out a solid template.  
 I’ve stripped it down and rebuilt it for my own use.
-
-## Introduction
 
 ```md
 # コンテキスト
