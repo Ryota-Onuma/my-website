@@ -19,63 +19,63 @@ const sidebars: SidebarsConfig = {
           type: "html",
           value: sidebarElement(
             "国内ECモール連携が主であるシステムで、グローバルなECモール連携を実現する際に生じた問題とその解決方法",
-            "https://tech.buysell-technologies.com/entry/adventcalendar2024-12-03",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2024-12-03"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "サービス運用の負担軽減に繋がった、Playwrightの紹介",
-            "https://tech.buysell-technologies.com/entry/adventcalendar2023-12-03-01",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2023-12-03-01"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "プレ負荷テストの導入が、新規開発プロジェクトの負荷テストを円滑にした体験談",
-            "https://tech.buysell-technologies.com/entry/2023/10/30/102458",
+            "https://tech.buysell-technologies.com/entry/2023/10/30/102458"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "HasuraのRemote Schema to Database Relationshipsを用いたElasticsearchとの検索連携",
-            "https://tech.buysell-technologies.com/entry/2023/02/28/080000",
+            "https://tech.buysell-technologies.com/entry/2023/02/28/080000"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "リファイメントとプランニングを改善することで、チームの属人化が解消された話",
-            "https://tech.buysell-technologies.com/entry/adventcalendar2022-12-03",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2022-12-03"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "Hasura CLIで挿入するマスタデータをスプレッドシート管理に移行させたので振り返ってみた",
-            "https://tech.buysell-technologies.com/entry/2022/07/30/153326",
+            "https://tech.buysell-technologies.com/entry/2022/07/30/153326"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "在庫管理システムの本番環境DBアップグレードを振り返ってみる",
-            "https://tech.buysell-technologies.com/entry/2022/01/26/202243",
+            "https://tech.buysell-technologies.com/entry/2022/01/26/202243"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "CircleCIで構築されたCI/CD環境をGitHub Actionsに移行した際のポイント",
-            "https://tech.buysell-technologies.com/entry/adventcalendar2021-12-05",
+            "https://tech.buysell-technologies.com/entry/adventcalendar2021-12-05"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "バイセルの内定者インターン with コロナってどんなことするの？？",
-            "https://tech.buysell-technologies.com/entry/2020/12/21/092653",
+            "https://tech.buysell-technologies.com/entry/2020/12/21/092653"
           ),
         },
       ],
@@ -88,35 +88,35 @@ const sidebars: SidebarsConfig = {
           type: "html",
           value: sidebarElement(
             "親子関係のあるデータの検索を、ElasticsearchのJoin field typeを使って実現した",
-            "https://zenn.dev/onuma_ryota/articles/parent-child-search-elasticsearch",
+            "https://zenn.dev/buyselltech/articles/db14b7f21c28e7"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "LeetCode: 122. Best Time to Buy and Sell Stock II をGoで解く",
-            "https://zenn.dev/onuma_ryota/articles/leetcode-122-go",
+            "https://zenn.dev/ryota_onuma/articles/6f5439ada968d7"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "LeetCode: 121. Best Time to Buy and Sell Stock をGoで解く",
-            "https://zenn.dev/onuma_ryota/articles/leetcode-121-go",
+            "https://zenn.dev/ryota_onuma/articles/c050d03d6f3bae"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "LeetCode: 189. Rotate Array をGoで解く",
-            "https://zenn.dev/onuma_ryota/articles/leetcode-189-go",
+            "https://zenn.dev/ryota_onuma/articles/b12e4e994a2245"
           ),
         },
         {
           type: "html",
           value: sidebarElement(
             "LeetCode: 169. Majority Element をGoで解く",
-            "https://zenn.dev/onuma_ryota/articles/leetcode-169-go",
+            "https://zenn.dev/ryota_onuma/articles/b0fa3fc1173648"
           ),
         },
       ],
