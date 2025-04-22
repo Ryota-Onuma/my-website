@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
-import Greeting from "@site/src/components/Greeting";
+import FirstArea from "@site/src/components/FirstArea";
 import Layout from "@theme/Layout";
-import Link from "@docusaurus/Link";
 
 import styles from "./index.module.css";
 import BlogCard from "@site/src/components/BlogCard";
@@ -119,7 +118,7 @@ export default function Home(): ReactNode {
       description="Description will go into a meta tag in <head />"
     >
       <main className={styles.main}>
-        <Greeting />
+        <FirstArea />
         <section className={styles.aboutMe}>
           <h1 className={styles.heading}>
             <Translate>こんにちは👋</Translate>

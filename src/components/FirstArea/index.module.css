@@ -249,6 +249,7 @@
     align-items: center;
     justify-content: center;
     padding-top: 70px;
+    gap: 50px;
     z-index: 5;
     img {
       width: 80%;
@@ -263,6 +264,7 @@
     align-items: center;
     gap: 10px;
   }
+
   .onumaRyota {
     width: 265px;
     height: 55px;
@@ -285,6 +287,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 50px;
   }
 
   .hero {

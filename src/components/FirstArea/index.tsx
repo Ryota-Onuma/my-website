@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.module.css";
 
-const Top = () => {
+const FirstArea = () => {
   return (
     <>
       <div className={styles.greeting}>
@@ -14,8 +14,6 @@ const Top = () => {
         </div>
         <div className={styles.characters}>
           <SakuraWitch />
-          <Hero />
-          <Princess />
           <MusicianDuck />
         </div>
         <div className={styles.buttons}>
@@ -39,14 +37,6 @@ const SakuraWitch = () => {
   return <div className={styles.sakuraWitch} />;
 };
 
-const Hero = () => {
-  return <div className={styles.hero} />;
-};
-
-const Princess = () => {
-  return <div className={styles.princess} />;
-};
-
 const MusicianDuck = () => {
   return <div className={styles.musicianDuck} />;
 };
@@ -55,4 +45,4 @@ const Scroll = () => {
   return <div className={styles.scroll} />;
 };
 
-export default Top;
+export default FirstArea;
