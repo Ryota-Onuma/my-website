@@ -7,3 +7,8 @@ antenna:
   label: Antenna
   permalink: /antenna
   description: Antenna blog posts
+
+english:
+  label: English
+  permalink: /english
+  description: Learning English
