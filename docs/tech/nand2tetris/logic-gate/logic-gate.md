@@ -11,7 +11,7 @@ Nand2Tetrisの第1章をやる。この章は与えられたNandゲートを拡�
 ![Nandゲート](./img/nand.png)
 
 Built-Inのものを使用するが、Nandゲートがどういう動作をするかだけ確認しておく。
-AとBという入力ピンを備えたNandゲートに0/1入力を加えた場合、どのようなアウトプットになるかを示した票が以下である。
+AとBという入力ピンを備えたNandゲートに0/1入力を加えた場合、どのようなアウトプットになるかを示した表が以下である。
 
 | A | B | Out|
 | ---- | ---- | ---- |
@@ -41,7 +41,7 @@ CHIP Not {
     OUT out;
 
     PARTS:
-    Nand(a= in, b= in, out= out);
+    Nand(a= in, b= in, out=out);
 }
 ```
 
@@ -83,7 +83,7 @@ CHIP And {
     OUT out;
     
     PARTS:
-    Nand(a= a, b= b, out= toNot);
+    Nand(a=a, b=b, out=toNot);
     Not(in=toNot, out=out);
 }
 ```
@@ -116,7 +116,7 @@ CHIP Or {
     OUT out;
 
     PARTS:
-    Nand(a=a,b=a,out= first);
+    Nand(a=a,b=a,out=first);
     Nand(a=b,b=b,out=second);
     Nand(a=first,b=second,out=out);
 }
